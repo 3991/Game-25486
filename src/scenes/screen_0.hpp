@@ -33,8 +33,6 @@ const int fontSize = 18;
 using namespace screen0;
 
 screen_0::screen_0(void) {
-     //subWindowRect = InfoBox(sf::Vector2f(300, 450), sf::Vector2f(100, 100), sf::Color(237, 237, 237), 3.f, sf::Color(0, 0, 0));
-
 }
 
 
@@ -156,40 +154,21 @@ int screen_0::Run(sf::RenderWindow &App) {
                    }
                 }
             }
-
-
-          /*  if (Event.type == sf::Event::KeyPressed) {
-                switch (Event.key.code) {
-                    case sf::Keyboard::Up:
-                        //menu = 0;
-                        break;
-                    case sf::Keyboard::Down:
-                        //menu = 1;
-                        break;
-                    default:
-                        break;
-                }
-            }*/
-
-
-
         }
 
 
-        /*if (menu == 0) {
-            nameMenuText.setColor(sf::Color(16, 52, 166, 255));
-            familyMenuText.setColor(sf::Color(0, 0, 0, 255));
-        }else {
-            nameMenuText.setColor(sf::Color(0, 0, 0, 255));
-            familyMenuText.setColor(sf::Color(16, 52, 166, 255));
-        }*/
+
 
 
         App.clear(sf::Color(255, 255, 255, 255));
-        App.draw(subWindowRect);
+
+        subWindowRect.draw(App);
+        //App.draw(subWindowRect);
         App.draw(barSubWindowRect);
         App.draw(textAreaRect);
-subWindowRect.draw(App);
+
+
+
         App.draw(choiceSubTitleText);
         App.draw(tileSubWindowText);
         App.draw(nameMenuText);
@@ -270,12 +249,12 @@ void screen_0::initText() {
 }
 
 void screen_0::initShape() {
-    //subWindowRect = InfoBox(sf::Vector2f(300, 450), sf::Vector2f(100, 100), sf::Color(237, 237, 237), 3.f, sf::Color(0, 0, 0));
-    subWindowRect.setSize((sf::Vector2f(300, 450)));
+    subWindowRect = InfoBox(sf::Vector2f(300, 450), sf::Vector2f(100, 100), sf::Color(237, 237, 237), 3.f, sf::Color(0, 0, 0));
+    /*subWindowRect.setSize((sf::Vector2f(300, 450)));
     subWindowRect.setPosition(sf::Vector2f(100, 100));
     subWindowRect.setFillColor(sf::Color(237, 237, 237));
     subWindowRect.setOutlineThickness(3);
-    subWindowRect.setOutlineColor(sf::Color(0, 0, 0));
+    subWindowRect.setOutlineColor(sf::Color(0, 0, 0));*/
 
     barSubWindowRect.setSize((sf::Vector2f(294, 25)));
     barSubWindowRect.setPosition(sf::Vector2f(103, 103));
