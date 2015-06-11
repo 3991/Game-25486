@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1433349880 source:c:\program files (x86)\codeblocks\projets\game25486\main.cpp
+1433889433 source:c:\program files (x86)\codeblocks\projets\game25486\main.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	"src/scenes/screens.hpp"
@@ -368,13 +368,18 @@
 1433261819 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\cscreen.hpp
 	<SFML/Graphics.hpp>
 
-1433288683 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\screen_0.hpp
+1433981188 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\screen_0.hpp
 	<iostream>
 	"cScreen.hpp"
+	"../gui/InfoBox.hpp"
 	<SFML/Graphics.hpp>
 
 1433355668 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\screen_1.hpp
 	<iostream>
 	"cScreen.hpp"
+	<SFML/Graphics.hpp>
+
+1433980188 c:\program files (x86)\codeblocks\projets\game25486\src\gui\infobox.hpp
+	<iostream>
 	<SFML/Graphics.hpp>
 

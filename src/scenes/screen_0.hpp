@@ -1,8 +1,11 @@
 #include <iostream>
 #include "cScreen.hpp"
+#include "../gui/InfoBox.hpp"
 #include <SFML/Graphics.hpp>
 #define FONT_SIZE 18
 
+namespace screen0
+{
 class screen_0 : public cScreen {
     private:
         sf::Font font;
@@ -16,6 +19,7 @@ class screen_0 : public cScreen {
         sf::RectangleShape rectangle;
         sf::CircleShape hexagon;
         sf::CircleShape pentagon;
+        InfoBox tests;
     public:
         screen_0(void);
         virtual int Run(sf::RenderWindow &App);
@@ -23,23 +27,29 @@ class screen_0 : public cScreen {
         void initText();
         void initShape();
 };
+const int fontSize = 18;
+}
+
+using namespace screen0;
 
 screen_0::screen_0(void) {
 }
+
+
+
 
 int screen_0::Run(sf::RenderWindow &App) {
     sf::Event Event;
     bool running = true;
 
     sf::String textes;
-    int menu = 0;
     bool typeOn = false;
 
     load();
 
     initText();
     initShape();
-
+tests.test();
     // Detection area
     sf::FloatRect textAreaDetection(textAreaRect.getPosition().x, textAreaRect.getPosition().y, textAreaRect.getSize().x, textAreaRect.getSize().y);
     sf::FloatRect circleDetection(circle.getPosition().x, circle.getPosition().y, circle.getLocalBounds().width , circle.getLocalBounds().width);
@@ -212,7 +222,7 @@ int screen_0::load() {
 
 void screen_0::initText() {
     text.setFont(font);
-    text.setCharacterSize(FONT_SIZE);
+    text.setCharacterSize(fontSize);
     text.setColor(sf::Color::Black);
     text.setPosition(125, 190);
 

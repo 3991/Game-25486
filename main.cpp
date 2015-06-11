@@ -12,7 +12,7 @@ int main(int argc, char** argv)
     settings.antialiasingLevel = 8;
 
     //Window creation
-    sf::RenderWindow App(sf::VideoMode(800, 600, 32), "game 25486", sf::Style::Default, settings);
+    sf::RenderWindow App(sf::VideoMode(800, 600, 32), "Game 25486", sf::Style::Default, settings);
 
     //Mouse cursor no more visible
     App.setMouseCursorVisible(true);
