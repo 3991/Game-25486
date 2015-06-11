@@ -2,7 +2,7 @@
 #include "cScreen.hpp"
 #include "../gui/InfoBox.hpp"
 #include <SFML/Graphics.hpp>
-#define FONT_SIZE 18
+
 
 namespace screen0
 {
@@ -10,7 +10,7 @@ class screen_0 : public cScreen {
     private:
         sf::Font font;
         sf::Text text, tileSubWindowText, nameMenuText, familyMenuText, choiceSubTitleText, continueSubWindowText, quitSubWindowText;
-        sf::RectangleShape subWindowRect;
+        InfoBox subWindowRect;
         sf::RectangleShape barSubWindowRect;
         sf::RectangleShape textAreaRect;
         sf::CircleShape circle;
@@ -33,6 +33,8 @@ const int fontSize = 18;
 using namespace screen0;
 
 screen_0::screen_0(void) {
+     //subWindowRect = InfoBox(sf::Vector2f(300, 450), sf::Vector2f(100, 100), sf::Color(237, 237, 237), 3.f, sf::Color(0, 0, 0));
+
 }
 
 
@@ -49,7 +51,7 @@ int screen_0::Run(sf::RenderWindow &App) {
 
     initText();
     initShape();
-tests.test();
+
     // Detection area
     sf::FloatRect textAreaDetection(textAreaRect.getPosition().x, textAreaRect.getPosition().y, textAreaRect.getSize().x, textAreaRect.getSize().y);
     sf::FloatRect circleDetection(circle.getPosition().x, circle.getPosition().y, circle.getLocalBounds().width , circle.getLocalBounds().width);
@@ -184,11 +186,10 @@ tests.test();
 
 
         App.clear(sf::Color(255, 255, 255, 255));
-
         App.draw(subWindowRect);
         App.draw(barSubWindowRect);
         App.draw(textAreaRect);
-
+subWindowRect.draw(App);
         App.draw(choiceSubTitleText);
         App.draw(tileSubWindowText);
         App.draw(nameMenuText);
@@ -227,36 +228,36 @@ void screen_0::initText() {
     text.setPosition(125, 190);
 
     tileSubWindowText.setFont(font);
-    tileSubWindowText.setCharacterSize(FONT_SIZE);
+    tileSubWindowText.setCharacterSize(fontSize);
     tileSubWindowText.setString("Birth-certificate");
     tileSubWindowText.setPosition({ 105.f, 105.f });
 
     continueSubWindowText.setFont(font);
-    continueSubWindowText.setCharacterSize(FONT_SIZE);
+    continueSubWindowText.setCharacterSize(fontSize);
     continueSubWindowText.setString("Continue");
     continueSubWindowText.setColor(sf::Color::Black);
     continueSubWindowText.setPosition({ 200.f, 470.f });
 
     quitSubWindowText.setFont(font);
-    quitSubWindowText.setCharacterSize(FONT_SIZE);
+    quitSubWindowText.setCharacterSize(fontSize);
     quitSubWindowText.setString("Quit");
     quitSubWindowText.setColor(sf::Color::Black);
     quitSubWindowText.setPosition({ 200.f, 490.f });
 
     nameMenuText.setColor(sf::Color(0, 0, 0, 255));
     nameMenuText.setFont(font);
-    nameMenuText.setCharacterSize(FONT_SIZE);
+    nameMenuText.setCharacterSize(fontSize);
     nameMenuText.setString("1. What's your name ?");
     nameMenuText.setPosition({ 170.f, 160.f });
 
     familyMenuText.setColor(sf::Color(0, 0, 0, 255));
     familyMenuText.setFont(font);
-    familyMenuText.setCharacterSize(FONT_SIZE);
+    familyMenuText.setCharacterSize(fontSize);
     familyMenuText.setString("2. What's your family ?");
     familyMenuText.setPosition({ 170.f, 270.f });
 
     choiceSubTitleText.setFont(font);
-    choiceSubTitleText.setCharacterSize(FONT_SIZE);
+    choiceSubTitleText.setCharacterSize(fontSize);
     choiceSubTitleText.setColor(sf::Color::Black);
     choiceSubTitleText.setString("3. Now make a choice");
     choiceSubTitleText.setPosition({ 170.f, 450.f });
@@ -269,6 +270,7 @@ void screen_0::initText() {
 }
 
 void screen_0::initShape() {
+    //subWindowRect = InfoBox(sf::Vector2f(300, 450), sf::Vector2f(100, 100), sf::Color(237, 237, 237), 3.f, sf::Color(0, 0, 0));
     subWindowRect.setSize((sf::Vector2f(300, 450)));
     subWindowRect.setPosition(sf::Vector2f(100, 100));
     subWindowRect.setFillColor(sf::Color(237, 237, 237));
