@@ -10,9 +10,7 @@ class screen_0 : public cScreen {
     private:
         sf::Font font;
         sf::Text text, tileSubWindowText, nameMenuText, familyMenuText, choiceSubTitleText, continueSubWindowText, quitSubWindowText;
-        InfoBox subWindowRect;
-        sf::RectangleShape barSubWindowRect;
-        sf::RectangleShape textAreaRect;
+        InfoBox subWindowRect, barSubWindowRect, textAreaRect;
         sf::CircleShape circle;
         sf::CircleShape triangle;
         sf::CircleShape square;
@@ -163,11 +161,8 @@ int screen_0::Run(sf::RenderWindow &App) {
         App.clear(sf::Color(255, 255, 255, 255));
 
         subWindowRect.draw(App);
-        //App.draw(subWindowRect);
-        App.draw(barSubWindowRect);
-        App.draw(textAreaRect);
-
-
+        barSubWindowRect.draw(App);
+        textAreaRect.draw(App);
 
         App.draw(choiceSubTitleText);
         App.draw(tileSubWindowText);
@@ -241,24 +236,13 @@ void screen_0::initText() {
     choiceSubTitleText.setString("3. Now make a choice");
     choiceSubTitleText.setPosition({ 170.f, 450.f });
 
-    textAreaRect.setSize((sf::Vector2f(250, 25)));
-    textAreaRect.setPosition(sf::Vector2f(120, 185));
-    textAreaRect.setFillColor(sf::Color(255, 255, 255, 255));
-    textAreaRect.setOutlineThickness(2);
-    textAreaRect.setOutlineColor(sf::Color(0, 0, 0));
+    textAreaRect = InfoBox(sf::Vector2f(250, 25), sf::Vector2f(120, 185), sf::Color(255, 255, 255, 255), 2.f, sf::Color(0, 0, 0));
 }
 
 void screen_0::initShape() {
     subWindowRect = InfoBox(sf::Vector2f(300, 450), sf::Vector2f(100, 100), sf::Color(237, 237, 237), 3.f, sf::Color(0, 0, 0));
-    /*subWindowRect.setSize((sf::Vector2f(300, 450)));
-    subWindowRect.setPosition(sf::Vector2f(100, 100));
-    subWindowRect.setFillColor(sf::Color(237, 237, 237));
-    subWindowRect.setOutlineThickness(3);
-    subWindowRect.setOutlineColor(sf::Color(0, 0, 0));*/
+    barSubWindowRect = InfoBox(sf::Vector2f(294, 25), sf::Vector2f(103, 103), sf::Color(0, 0, 0));
 
-    barSubWindowRect.setSize((sf::Vector2f(294, 25)));
-    barSubWindowRect.setPosition(sf::Vector2f(103, 103));
-    barSubWindowRect.setFillColor(sf::Color(0, 0, 0));
 
 
     circle.setRadius(25);
