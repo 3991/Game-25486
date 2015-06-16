@@ -3,7 +3,6 @@
 
 class InfoBox : public sf::RectangleShape {
     private:
-        sf::RectangleShape barSubWindowRect;
         sf::Vector2f position;
         sf::Vector2f size;
         sf::Color color;
@@ -11,7 +10,8 @@ class InfoBox : public sf::RectangleShape {
         sf::Color thicknessColor;
     public:
         InfoBox(void);
-        InfoBox(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, sf::RenderWindow &window);
+        explicit InfoBox(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color);
+        explicit InfoBox(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor);
         virtual ~InfoBox(void);
         /*void setSize(const sf::Vector2f &size);
         sf::Vector2f getSize() const;
@@ -23,27 +23,24 @@ class InfoBox : public sf::RectangleShape {
         float getThickness() const;
         void setThicknessColor(const sf::Color &thicknessColor);
         sf::Color getThicknessColor() const;*/
-        void draw(sf::RenderWindow &window);
 };
 
 InfoBox::InfoBox(void) {
 
 }
 
+InfoBox::InfoBox(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color) {
+    setSize(size);
+    setPosition(position);
+    setFillColor(color);
+}
 
-InfoBox::InfoBox(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, sf::RenderWindow &window) {
-    //setOrigin(size/2.f);
+InfoBox::InfoBox(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor) {
     setSize(size);
     setPosition(position);
     setFillColor(color);
     setOutlineThickness(thickness);
     setOutlineColor(thicknessColor);
-
-    barSubWindowRect.setSize(sf::Vector2f(294, 25));
-    barSubWindowRect.setPosition(sf::Vector2f(103, 103));
-    barSubWindowRect.setFillColor(sf::Color(0,0,0));
-    window.draw(barSubWindowRect);
-    draw(window);
 }
 
 InfoBox::~InfoBox(void) {
@@ -90,6 +87,3 @@ sf::Color InfoBox::getThicknessColor() const{
     return this->thicknessColor;
 }*/
 
-void InfoBox::draw(sf::RenderWindow &window){
-    window.draw(barSubWindowRect);
-}

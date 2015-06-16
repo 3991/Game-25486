@@ -40,7 +40,7 @@ int screen_0::Run(sf::RenderWindow &App) {
 
     sf::String textes;
     bool typeOn = false;
- subWindowRect = InfoBox(sf::Vector2f(300, 450), sf::Vector2f(100, 100), sf::Color(237, 237, 237), 3.f, sf::Color(0, 0, 0), App);
+
     load();
 
     initText();
