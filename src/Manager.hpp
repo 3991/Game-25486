@@ -1,7 +1,6 @@
 #include <iostream>
 #include "cScreen.hpp"
 #include <SFML/Graphics.hpp>
-#define FONT_SIZE 18
 
 class Manager {
     private:

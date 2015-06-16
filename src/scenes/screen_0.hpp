@@ -3,7 +3,6 @@
 #include "../gui/InfoBox.hpp"
 #include <SFML/Graphics.hpp>
 
-
 namespace screen0
 {
 class screen_0 : public cScreen {
@@ -17,7 +16,6 @@ class screen_0 : public cScreen {
         sf::RectangleShape rectangle;
         sf::CircleShape hexagon;
         sf::CircleShape pentagon;
-        InfoBox tests;
     public:
         screen_0(void);
         virtual int Run(sf::RenderWindow &App);
@@ -42,7 +40,7 @@ int screen_0::Run(sf::RenderWindow &App) {
 
     sf::String textes;
     bool typeOn = false;
-
+ subWindowRect = InfoBox(sf::Vector2f(300, 450), sf::Vector2f(100, 100), sf::Color(237, 237, 237), 3.f, sf::Color(0, 0, 0), App);
     load();
 
     initText();
@@ -58,6 +56,8 @@ int screen_0::Run(sf::RenderWindow &App) {
     sf::FloatRect pentagonDetection(pentagon.getPosition().x, pentagon.getPosition().y, pentagon.getLocalBounds().width, pentagon.getLocalBounds().width);
     sf::FloatRect continueTextDetectionDetection(continueSubWindowText.getPosition().x, continueSubWindowText.getPosition().y, continueSubWindowText.getGlobalBounds().width, continueSubWindowText.getGlobalBounds().height);
     sf::FloatRect quitTextDetectionDetection(quitSubWindowText.getPosition().x, quitSubWindowText.getPosition().y, quitSubWindowText.getGlobalBounds().width, quitSubWindowText.getGlobalBounds().height);
+
+
 
 
     while (running) {
@@ -160,9 +160,9 @@ int screen_0::Run(sf::RenderWindow &App) {
 
         App.clear(sf::Color(255, 255, 255, 255));
 
-        subWindowRect.draw(App);
-        barSubWindowRect.draw(App);
-        textAreaRect.draw(App);
+        App.draw(subWindowRect);
+        App.draw(barSubWindowRect);
+        App.draw(textAreaRect);
 
         App.draw(choiceSubTitleText);
         App.draw(tileSubWindowText);
@@ -236,12 +236,11 @@ void screen_0::initText() {
     choiceSubTitleText.setString("3. Now make a choice");
     choiceSubTitleText.setPosition({ 170.f, 450.f });
 
-    textAreaRect = InfoBox(sf::Vector2f(250, 25), sf::Vector2f(120, 185), sf::Color(255, 255, 255, 255), 2.f, sf::Color(0, 0, 0));
+    //textAreaRect = InfoBox(sf::Vector2f(250, 25), sf::Vector2f(120, 185), sf::Color(255, 255, 255, 255), 2.f, sf::Color(0, 0, 0));
 }
 
 void screen_0::initShape() {
-    subWindowRect = InfoBox(sf::Vector2f(300, 450), sf::Vector2f(100, 100), sf::Color(237, 237, 237), 3.f, sf::Color(0, 0, 0));
-    barSubWindowRect = InfoBox(sf::Vector2f(294, 25), sf::Vector2f(103, 103), sf::Color(0, 0, 0));
+
 
 
 
