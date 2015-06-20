@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1433889433 source:c:\program files (x86)\codeblocks\projets\game25486\main.cpp
+1434719722 source:c:\program files (x86)\codeblocks\projets\game25486\main.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	"src/scenes/screens.hpp"
@@ -368,10 +368,11 @@
 1433261819 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\cscreen.hpp
 	<SFML/Graphics.hpp>
 
-1434464895 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\screen_0.hpp
+1434822673 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\screen_0.hpp
 	<iostream>
 	"cScreen.hpp"
 	"../gui/InfoBox.hpp"
+	"../gui/ManagerGUI.hpp"
 	<SFML/Graphics.hpp>
 
 1433355668 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\screen_1.hpp
@@ -379,9 +380,10 @@
 	"cScreen.hpp"
 	<SFML/Graphics.hpp>
 
-1434464855 c:\program files (x86)\codeblocks\projets\game25486\src\gui\infobox.hpp
+1434822537 c:\program files (x86)\codeblocks\projets\game25486\src\gui\infobox.hpp
 	<iostream>
 	<SFML/Graphics.hpp>
+	<list>
 
 1434311704 c:\program files (x86)\codeblocks\projets\game25486\src\settings.h
 
@@ -395,4 +397,8 @@
 1434109365 source:c:\program files (x86)\codeblocks\projets\game25486\src\paddle.cpp
 	"Paddle.h"
 	"Settings.h"
+
+1434822597 c:\program files (x86)\codeblocks\projets\game25486\src\gui\managergui.hpp
+	<iostream>
+	<SFML/Graphics.hpp>
 

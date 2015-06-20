@@ -3,25 +3,60 @@
 
 class ManagerGUI {
     private:
-        InfoBox subWindowRect, barSubWindowRect;
+        InfoBox pane;
+        std::vector<InfoBox*> windowList;
+        int screen;
     public:
         ManagerGUI(void);
-        void ManagerGUI::addSubwindow();
+        virtual ~ManagerGUI(void);
+        void addSubwindow(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, int numWindow);
         void draw(sf::RenderWindow &window);
+        void addText(sf::Font &font, int fontSize, const sf::String &message, const sf::Color &color, const sf::Vector2f &size);
+        void addShape(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor);
+        void addShape(const int &radius, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor);
+        void addShape(const int &radius, const int &pointCount, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor);
 };
 
 ManagerGUI::ManagerGUI(void) {
+    screen = 0;
 }
 
 
-void ManagerGUI::addSubwindow(){
-    subWindowRect = InfoBox(sf::Vector2f(300, 450), sf::Vector2f(100, 100), sf::Color(237, 237, 237), 3.f, sf::Color(0, 0, 0));
+ManagerGUI::~ManagerGUI(void) {
+}
 
-
-    barSubWindowRect = InfoBox(sf::Vector2f(294, 25), sf::Vector2f(103, 103), sf::Color(0,0,0),);
+void ManagerGUI::addSubwindow(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, int numWindow){
+    pane = InfoBox(size, position, color, thickness, thicknessColor, numWindow);
+    windowList.push_back(&pane);
 }
 
 void ManagerGUI::draw(sf::RenderWindow &window){
-    window.draw(subWindowRect);
-    window.draw(barSubWindowRect);
+    //for(std::list<InfoBox>::iterator inte = windowList.begin(); inte != windowList.end(); inte++){
+       //inte->draw(window);
+
+   //}
+   //for(int a = 0;a<windowList.size(); a++){
+
+    windowList[0]->draw(window);
+
+        //z = windowList[a];
+        //z.draw(window);
+    //}
+   //pane.draw(window);
+}
+
+void ManagerGUI::addText(sf::Font &font, int fontSize, const sf::String &message, const sf::Color &color, const sf::Vector2f &size){
+    pane.addText(font, fontSize, message, color, size);
+}
+
+void ManagerGUI::addShape(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor){
+    pane.addShape(size, position, color, thickness, thicknessColor);
+}
+
+void ManagerGUI::addShape(const int &radius, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor){
+    pane.addShape(radius, position, color, thickness, thicknessColor);
+}
+
+void ManagerGUI::addShape(const int &radius, const int &pointCount, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor){
+    pane.addShape(radius, pointCount, position, color, thickness, thicknessColor);
 }
