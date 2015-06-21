@@ -1,8 +1,9 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "MyRectangleShape.hpp"
 #include <list>
 
-class InfoBox : public sf::RectangleShape {
+class InfoBox {
     private:
         sf::Vector2f position;
         sf::Vector2f size;
@@ -12,8 +13,8 @@ class InfoBox : public sf::RectangleShape {
         sf::Color thicknessColor;
         std::list<sf::RectangleShape> listShapes;
         std::list<sf::CircleShape> listCircles;
-        std::list<sf::Text> listText;
-        sf::RectangleShape pane, paneBar, shape;
+        std::list<sf::Text> listTexts;
+        MyRectangleShape pane, paneBar, shape;
         sf::CircleShape circleShape;
         sf::Text text;
         int number;
@@ -23,7 +24,7 @@ class InfoBox : public sf::RectangleShape {
         explicit InfoBox(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int number);
         virtual ~InfoBox(void);
         void draw(sf::RenderWindow &window);
-        void addText(sf::Font &font, int fontSize, const sf::String &message, const sf::Color &color, const sf::Vector2f &size);
+        void addText(sf::Font &font, int fontSize, const sf::String &message, const sf::Color &color, const sf::Vector2f &size, const int &number);
         void addShape(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor);
         void addShape(const int &radius, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor);
         void addShape(const int &radius, const int &pointCount, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor);
@@ -36,7 +37,7 @@ InfoBox::InfoBox(void) {
 
 InfoBox::InfoBox(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color) {
     pane.setSize(size);
-    pane.setPosition(position);
+    pane.sf::RectangleShape::setPosition(position);
     pane.setFillColor(color);
 
     listShapes.push_front(pane);
@@ -45,13 +46,13 @@ InfoBox::InfoBox(const sf::Vector2f &size, const sf::Vector2f &position, const s
 InfoBox::InfoBox(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int number) {
     setNumber(number);
     pane.setSize(size);
-    pane.setPosition(position);
+    pane.sf::RectangleShape::setPosition(position);
     pane.setFillColor(color);
     pane.setOutlineThickness(thickness);
     pane.setOutlineColor(thicknessColor);
 
     paneBar.setSize(sf::Vector2f(294, 25));
-    paneBar.setPosition(sf::Vector2f(103, 103));
+    paneBar.sf::RectangleShape::setPosition(sf::Vector2f(103, 103));
     paneBar.setFillColor(sf::Color(0,0,0));
 
     listShapes.push_front(paneBar);
@@ -67,7 +68,7 @@ void InfoBox::draw(sf::RenderWindow &window){
         window.draw(*inte);
     }
 
-    for(std::list<sf::Text>::iterator inte = listText.begin(); inte != listText.end(); inte++){
+    for(std::list<sf::Text>::iterator inte = listTexts.begin(); inte != listTexts.end(); inte++){
         window.draw(*inte);
    }
 
@@ -76,24 +77,24 @@ void InfoBox::draw(sf::RenderWindow &window){
    }
 }
 
-void InfoBox::addText(sf::Font &font, int fontSize, const sf::String &message, const sf::Color &color, const sf::Vector2f &size){
+void InfoBox::addText(sf::Font &font, int fontSize, const sf::String &message, const sf::Color &color, const sf::Vector2f &size, const int &number){
     text.setFont(font);
     text.setCharacterSize(fontSize);
     text.setString(message);
     text.setColor(color);
     text.setPosition(size);
 
-    listText.push_front(text);
+    listTexts.push_front(text);
 }
 
 void InfoBox::addShape(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor){
     shape.setSize(size);
-    shape.setPosition(position);
+    shape.sf::RectangleShape::setPosition(position);
     shape.setFillColor(color);
     shape.setOutlineThickness(thickness);
     shape.setOutlineColor(thicknessColor);
 
-    listShapes.push_front(shape);
+    listShapes.push_back(shape);
 }
 
 void InfoBox::addShape(const int &radius, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor){
