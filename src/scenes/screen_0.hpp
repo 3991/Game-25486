@@ -55,6 +55,16 @@ int screen_0::Run(sf::RenderWindow &App) {
     initText();
 
 
+    std::list<Content> t;
+    t = managerGui.getTexts();
+
+    for(std::list<Content>::iterator inte = t.begin(); inte != t.end(); inte++){
+        if(inte->getNumber() == TITLE_TEXT){
+            // ...
+        }
+       //inte->draw(window);
+    }
+
     // Detection area
     /*sf::FloatRect textAreaDetection(textAreaRect.getPosition().x, textAreaRect.getPosition().y, textAreaRect.getSize().x, textAreaRect.getSize().y);
     sf::FloatRect circleDetection(circle.getPosition().x, circle.getPosition().y, circle.getLocalBounds().width , circle.getLocalBounds().width);

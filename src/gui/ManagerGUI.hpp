@@ -15,6 +15,7 @@ class ManagerGUI {
         void addShape(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor);
         void addShape(const int &radius, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor);
         void addShape(const int &radius, const int &pointCount, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor);
+        std::list<Content> getTexts();
 };
 
 ManagerGUI::ManagerGUI(void) {
@@ -35,13 +36,9 @@ void ManagerGUI::draw(sf::RenderWindow &window){
        //inte->draw(window);
 
    //}
-   //for(int a = 0;a<windowList.size(); a++){
-
-    windowList[0]->draw(window);
-
-        //z = windowList[a];
-        //z.draw(window);
-    //}
+    for(unsigned int a = 0;a<windowList.size(); a++){
+        windowList[a]->draw(window);
+    }
    //pane.draw(window);
 }
 
@@ -59,4 +56,8 @@ void ManagerGUI::addShape(const int &radius, const sf::Vector2f &position, const
 
 void ManagerGUI::addShape(const int &radius, const int &pointCount, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor){
     pane.addShape(radius, pointCount, position, color, thickness, thicknessColor);
+}
+
+std::list<Content> ManagerGUI::getTexts(){
+    return this->pane.getTexts();
 }

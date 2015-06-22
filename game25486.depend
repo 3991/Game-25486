@@ -368,7 +368,7 @@
 1433261819 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\cscreen.hpp
 	<SFML/Graphics.hpp>
 
-1434902995 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\screen_0.hpp
+1434938472 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\screen_0.hpp
 	<iostream>
 	"cScreen.hpp"
 	"../gui/InfoBox.hpp"
@@ -380,10 +380,10 @@
 	"cScreen.hpp"
 	<SFML/Graphics.hpp>
 
-1434903929 c:\program files (x86)\codeblocks\projets\game25486\src\gui\infobox.hpp
+1434938385 c:\program files (x86)\codeblocks\projets\game25486\src\gui\infobox.hpp
 	<iostream>
 	<SFML/Graphics.hpp>
-	"MyRectangleShape.hpp"
+	"Content.hpp"
 	<list>
 
 1434311704 c:\program files (x86)\codeblocks\projets\game25486\src\settings.h
@@ -399,11 +399,16 @@
 	"Paddle.h"
 	"Settings.h"
 
-1434901791 c:\program files (x86)\codeblocks\projets\game25486\src\gui\managergui.hpp
+1434937427 c:\program files (x86)\codeblocks\projets\game25486\src\gui\managergui.hpp
 	<iostream>
 	<SFML/Graphics.hpp>
 
 1434903662 c:\program files (x86)\codeblocks\projets\game25486\src\gui\myrectangleshape.hpp
+	<iostream>
+	<SFML/Graphics.hpp>
+	<list>
+
+1434937865 c:\program files (x86)\codeblocks\projets\game25486\src\gui\content.hpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	<list>

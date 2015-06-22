@@ -49,9 +49,9 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Manager.hpp" />
 		<Unit filename="src/Player.hpp" />
+		<Unit filename="src/gui/Content.hpp" />
 		<Unit filename="src/gui/InfoBox.hpp" />
 		<Unit filename="src/gui/ManagerGUI.hpp" />
-		<Unit filename="src/gui/MyRectangleShape.hpp" />
 		<Unit filename="src/scenes/cScreen.cpp" />
 		<Unit filename="src/scenes/cScreen.hpp" />
 		<Unit filename="src/scenes/screen_0.hpp" />
