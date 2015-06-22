@@ -12,10 +12,12 @@ class ManagerGUI {
         void addSubwindow(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, int number);
         void draw(sf::RenderWindow &window);
         void addText(sf::Font &font, int fontSize, const sf::String &message, const sf::Color &color, const sf::Vector2f &size, const int &number);
-        void addShape(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor);
-        void addShape(const int &radius, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor);
-        void addShape(const int &radius, const int &pointCount, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor);
+        void addShape(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number);
+        void addShape(const int &radius, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number);
+        void addShape(const int &radius, const int &pointCount, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number);
         std::list<Content> getTexts();
+        std::list<Content> getShapes();
+        std::list<Content> getCircles();
 };
 
 ManagerGUI::ManagerGUI(void) {
@@ -46,18 +48,26 @@ void ManagerGUI::addText(sf::Font &font, int fontSize, const sf::String &message
     pane.addText(font, fontSize, message, color, size, number);
 }
 
-void ManagerGUI::addShape(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor){
-    pane.addShape(size, position, color, thickness, thicknessColor);
+void ManagerGUI::addShape(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number){
+    pane.addShape(size, position, color, thickness, thicknessColor, number);
 }
 
-void ManagerGUI::addShape(const int &radius, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor){
-    pane.addShape(radius, position, color, thickness, thicknessColor);
+void ManagerGUI::addShape(const int &radius, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number){
+    pane.addShape(radius, position, color, thickness, thicknessColor, number);
 }
 
-void ManagerGUI::addShape(const int &radius, const int &pointCount, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor){
-    pane.addShape(radius, pointCount, position, color, thickness, thicknessColor);
+void ManagerGUI::addShape(const int &radius, const int &pointCount, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number){
+    pane.addShape(radius, pointCount, position, color, thickness, thicknessColor, number);
 }
 
 std::list<Content> ManagerGUI::getTexts(){
     return this->pane.getTexts();
+}
+
+std::list<Content> ManagerGUI::getShapes(){
+    return this->pane.getShapes();
+}
+
+std::list<Content> ManagerGUI::getCircles(){
+    return this->pane.getCircles();
 }

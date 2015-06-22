@@ -23,12 +23,14 @@ class InfoBox {
         virtual ~InfoBox(void);
         void draw(sf::RenderWindow &window);
         void addText(sf::Font &font, int fontSize, const sf::String &message, const sf::Color &color, const sf::Vector2f &size, const int &number);
-        void addShape(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor);
-        void addShape(const int &radius, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor);
-        void addShape(const int &radius, const int &pointCount, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor);
+        void addShape(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number);
+        void addShape(const int &radius, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number);
+        void addShape(const int &radius, const int &pointCount, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number);
         void setNumber(const int number);
         int getNumber() const;
         std::list<Content> getTexts() const;
+        std::list<Content> getCircles() const;
+        std::list<Content> getShapes() const;
 };
 
 InfoBox::InfoBox(void) {
@@ -87,7 +89,8 @@ void InfoBox::addText(sf::Font &font, int fontSize, const sf::String &message, c
     texts.push_front(text);
 }
 
-void InfoBox::addShape(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor){
+void InfoBox::addShape(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number){
+    shape.setNumber(number);
     shape.sf::RectangleShape::setSize(size);
     shape.sf::RectangleShape::setPosition(position);
     shape.sf::RectangleShape::setFillColor(color);
@@ -97,7 +100,8 @@ void InfoBox::addShape(const sf::Vector2f &size, const sf::Vector2f &position, c
     shapes.push_back(shape);
 }
 
-void InfoBox::addShape(const int &radius, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor){
+void InfoBox::addShape(const int &radius, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number){
+    circleShape.setNumber(number);
     circleShape.sf::CircleShape::setRadius(radius);
     circleShape.sf::CircleShape::setPosition(position);
     circleShape.sf::CircleShape::setFillColor(color);
@@ -107,7 +111,8 @@ void InfoBox::addShape(const int &radius, const sf::Vector2f &position, const sf
     circles.push_front(circleShape);
 }
 
-void InfoBox::addShape(const int &radius, const int &pointCount, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor){
+void InfoBox::addShape(const int &radius, const int &pointCount, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number){
+    circleShape.setNumber(number);
     circleShape.sf::CircleShape::setRadius(radius);
     circleShape.sf::CircleShape::setPointCount(pointCount);
     circleShape.sf::CircleShape::setPosition(position);
@@ -128,4 +133,12 @@ int InfoBox::getNumber() const{
 
 std::list<Content> InfoBox::getTexts() const{
     return this->texts;
+}
+
+std::list<Content> InfoBox::getShapes() const{
+    return this->shapes;
+}
+
+std::list<Content> InfoBox::getCircles() const{
+    return this->circles;
 }
