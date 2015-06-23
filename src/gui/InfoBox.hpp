@@ -31,6 +31,7 @@ class InfoBox {
         std::list<Content> getTexts() const;
         std::list<Content> getCircles() const;
         std::list<Content> getShapes() const;
+        Content getCircle(const int &id) const;
 };
 
 InfoBox::InfoBox(void) {
@@ -45,7 +46,7 @@ InfoBox::InfoBox(const sf::Vector2f &size, const sf::Vector2f &position, const s
 }
 
 InfoBox::InfoBox(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int number) {
-    pane.setNumber(number);
+    setNumber(number);
     pane.sf::RectangleShape::setSize(size);
     pane.sf::RectangleShape::setPosition(position);
     pane.sf::RectangleShape::setFillColor(color);
@@ -71,11 +72,11 @@ void InfoBox::draw(sf::RenderWindow &window){
 
     for(std::list<Content>::iterator inte = texts.begin(); inte != texts.end(); inte++){
         window.draw((sf::Text)*inte);
-   }
+    }
 
     for(std::list<Content>::iterator inte = circles.begin(); inte != circles.end(); inte++){
         window.draw((sf::CircleShape)*inte);
-   }
+    }
 }
 
 void InfoBox::addText(sf::Font &font, int fontSize, const sf::String &message, const sf::Color &color, const sf::Vector2f &size, const int &number){
@@ -141,4 +142,14 @@ std::list<Content> InfoBox::getShapes() const{
 
 std::list<Content> InfoBox::getCircles() const{
     return this->circles;
+}
+
+Content InfoBox::getCircle(const int &id) const{
+    Content c;
+   // for(std::list<Content>::iterator inte = circles.begin(); inte != circles.end(); inte++){
+        //if(inte->getNumber() == id){
+           // return inte;
+        //}
+   //}
+    return c;
 }

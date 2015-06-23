@@ -68,18 +68,19 @@ int screen_0::Run(sf::RenderWindow &App) {
 
 // Detection area
     std::list<Content> t;
-    t = managerGui.getTexts();
+    t = managerGui.getTexts(WINDOW);
 
     for(std::list<Content>::iterator inte = t.begin(); inte != t.end(); inte++){
         if(inte->getNumber() == CONTINUE_TEXT){
             continueTextDetectionDetection = createDetectionArea(continueTextDetectionDetection, inte->sf::Text::getPosition().x, inte->sf::Text::getPosition().y, inte->sf::Text::getGlobalBounds().width, inte->sf::Text::getGlobalBounds().height);
         }else if(inte->getNumber() == QUIT_TEXT){
+
            quitTextDetectionDetection = createDetectionArea(quitTextDetectionDetection, inte->sf::Text::getPosition().x, inte->sf::Text::getPosition().y, inte->sf::Text::getGlobalBounds().width, inte->sf::Text::getGlobalBounds().height);
         }
     }
 
     std::list<Content> c;
-    c = managerGui.getCircles();
+    c = managerGui.getCircles(WINDOW);
 
     for(std::list<Content>::iterator inte = c.begin(); inte != c.end(); inte++){
         if(inte->getNumber() == CIRCLE_SHAPE){
@@ -96,7 +97,7 @@ int screen_0::Run(sf::RenderWindow &App) {
     }
 
     std::list<Content> r;
-    r = managerGui.getCircles();
+    r = managerGui.getCircles(WINDOW);
 
     for(std::list<Content>::iterator inte = r.begin(); inte != r.end(); inte++){
         if(inte->getNumber() == TEXT_AREA_SHAPE){
@@ -282,25 +283,6 @@ int screen_0::Run(sf::RenderWindow &App) {
 
         App.clear(sf::Color(255, 255, 255, 255));
         managerGui.draw(App);
-        /* App.draw(subWindowRect);
-        App.draw(barSubWindowRect);
-        App.draw(textAreaRect);
-
-        App.draw(choiceSubTitleText);
-        App.draw(tileSubWindowText);
-        App.draw(nameMenuText);
-        App.draw(familyMenuText);
-        App.draw(quitSubWindowText);
-        App.draw(continueSubWindowText);
-
-        App.draw(circle);
-        App.draw(triangle);
-        App.draw(square);
-        App.draw(rectangle);
-        App.draw(hexagon);
-        App.draw(pentagon);*/
-
-        //App.draw(text);
         App.display();
     }
 
