@@ -257,7 +257,7 @@ int screen_0::Run(sf::RenderWindow &App) {
                 hexagon.setOutlineColor(sf::Color(0, 0, 0));
                 pentagon.setOutlineColor(sf::Color(0, 0, 0));
             }else if(circleDetection.contains(sf::Mouse::getPosition(App).x, sf::Mouse::getPosition(App).y)){
-                continueSubWindowText.setColor(sf::Color::Black);
+                /*continueSubWindowText.setColor(sf::Color::Black);
                 quitSubWindowText.setColor(sf::Color::Black);
 
                 circle.setOutlineColor(sf::Color(16, 52, 166, 255));
@@ -265,8 +265,9 @@ int screen_0::Run(sf::RenderWindow &App) {
                 square.setOutlineColor(sf::Color(0, 0, 0));
                 rectangle.setOutlineColor(sf::Color(0, 0, 0));
                 hexagon.setOutlineColor(sf::Color(0, 0, 0));
-                pentagon.setOutlineColor(sf::Color(0, 0, 0));
-                managerGui.resetCirclesColors();
+                pentagon.setOutlineColor(sf::Color(0, 0, 0));*/
+                managerGui.resetFamilysColors(WINDOW, sf::Color::Green);
+                managerGui.setColor(WINDOW, CIRCLE_SHAPE, sf::Color::Blue);
             }
 
             if(typeOn){
@@ -314,17 +315,17 @@ void screen_0::initText() {
     text.setColor(sf::Color::Black);
     text.setPosition(125, 190);*/
 
-    managerGui.addText(font, FONT_SIZE, "Birth-certificate", sf::Color::White, {105.f, 105.f}, TITLE_TEXT, WINDOW);
+    managerGui.addText(font, FONT_SIZE, "Birth-certificate", sf::Color::White, {105.f, 105.f}, TITLE_TEXT, WINDOW, false);
 
-    managerGui.addText(font, FONT_SIZE, "Continue", sf::Color::Black, {200.f, 470.f}, CONTINUE_TEXT, WINDOW);
+    managerGui.addText(font, FONT_SIZE, "Continue", sf::Color::Black, {200.f, 470.f}, CONTINUE_TEXT, WINDOW, true);
 
-    managerGui.addText(font, FONT_SIZE, "Quit", sf::Color::Black, {200.f, 490.f}, QUIT_TEXT, WINDOW);
+    managerGui.addText(font, FONT_SIZE, "Quit", sf::Color::Black, {200.f, 490.f}, QUIT_TEXT, WINDOW, true);
 
-    managerGui.addText(font, FONT_SIZE, "1. What's your name ?", sf::Color(0, 0, 0, 255), {170.f, 160.f}, SUB_TITLE_NAME_TEXT, WINDOW);
+    managerGui.addText(font, FONT_SIZE, "1. What's your name ?", sf::Color(0, 0, 0, 255), {170.f, 160.f}, SUB_TITLE_NAME_TEXT, WINDOW, false);
 
-    managerGui.addText(font, FONT_SIZE, "2. What's your family ?", sf::Color(0, 0, 0, 255), {170.f, 270.f}, SUB_TITLE_FAMILY_TEXT, WINDOW);
+    managerGui.addText(font, FONT_SIZE, "2. What's your family ?", sf::Color(0, 0, 0, 255), {170.f, 270.f}, SUB_TITLE_FAMILY_TEXT, WINDOW, false);
 
-    managerGui.addText(font, FONT_SIZE, "3. Now make a choice", sf::Color(0, 0, 0, 255), {170.f, 450.f}, SUB_TITLE_CHOICE_TEXT, WINDOW);
+    managerGui.addText(font, FONT_SIZE, "3. Now make a choice", sf::Color(0, 0, 0, 255), {170.f, 450.f}, SUB_TITLE_CHOICE_TEXT, WINDOW, false);
 }
 
 void screen_0::initShape() {
@@ -332,23 +333,23 @@ void screen_0::initShape() {
     managerGui.addSubwindow(sf::Vector2f(300, 450), sf::Vector2f(100, 100), sf::Color(237, 237, 237), 3.f, sf::Color(0, 0, 0), WINDOW);
 
     // Input text area
-    managerGui.addShape(sf::Vector2f(250, 25), sf::Vector2f(120, 185), sf::Color(255, 255, 255, 255), 2.f, sf::Color(0, 0, 0), TEXT_AREA_SHAPE, WINDOW);
+    managerGui.addShape(sf::Vector2f(250, 25), sf::Vector2f(120, 185), sf::Color(255, 255, 255, 255), 2.f, sf::Color(0, 0, 0), TEXT_AREA_SHAPE, WINDOW, true);
 
     // Circle
-    managerGui.addShape(25, sf::Vector2f(120, 300), sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), CIRCLE_SHAPE, WINDOW);
+    managerGui.addShape(25, sf::Vector2f(120, 300), sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), CIRCLE_SHAPE, WINDOW, true);
 
     // Triangle
-    managerGui.addShape(30, 3, sf::Vector2f(180, 300), sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), TRIANGLE_SHAPE, WINDOW);
+    managerGui.addShape(30, 3, sf::Vector2f(180, 300), sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), TRIANGLE_SHAPE, WINDOW, true);
 
     // Square
-    managerGui.addShape(30, 4, sf::Vector2f(250, 300), sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), SQUARE_SHAPE, WINDOW);
+    managerGui.addShape(30, 4, sf::Vector2f(250, 300), sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), SQUARE_SHAPE, WINDOW, true);
 
     // Rectangle
-    managerGui.addShape(sf::Vector2f(70, 40), sf::Vector2f(120, 390), sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), RECTANGLE_SHAPE, WINDOW);
+    managerGui.addShape(sf::Vector2f(70, 40), sf::Vector2f(120, 390), sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), RECTANGLE_SHAPE, WINDOW, true);
 
     // Hexagon
-    managerGui.addShape(30, 6, sf::Vector2f(220, 380), sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), HEXAGON_SHAPE, WINDOW);
+    managerGui.addShape(30, 6, sf::Vector2f(220, 380), sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), HEXAGON_SHAPE, WINDOW, true);
 
     // Pentagon
-    managerGui.addShape(30, 5, sf::Vector2f(290, 380), sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), PENTAGON_SHAPE, WINDOW);
+    managerGui.addShape(30, 5, sf::Vector2f(290, 380), sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), PENTAGON_SHAPE, WINDOW, true);
 }

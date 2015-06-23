@@ -22,16 +22,17 @@ class Pane {
         explicit Pane(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int number);
         virtual ~Pane(void);
         void draw(sf::RenderWindow &window);
-        void addText(sf::Font &font, int fontSize, const sf::String &message, const sf::Color &color, const sf::Vector2f &size, const int &number);
-        void addShape(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number);
-        void addShape(const int &radius, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number);
-        void addShape(const int &radius, const int &pointCount, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number);
+        void addText(sf::Font &font, int fontSize, const sf::String &message, const sf::Color &color, const sf::Vector2f &size, const int &number, bool clickable);
+        void addShape(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number, bool clickable);
+        void addShape(const int &radius, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number, bool clickable);
+        void addShape(const int &radius, const int &pointCount, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number, bool clickable);
         void setNumber(const int number);
         int getNumber() const;
         std::list<Content> getTexts() const;
         std::list<Content> getCircles() const;
         std::list<Content> getShapes() const;
-        void resetCirclesColors();
+        void resetFamilysColors(sf::Color color);
+        void setColor(const int &id, sf::Color color);
 };
 
 Pane::Pane(void) {
@@ -79,40 +80,43 @@ void Pane::draw(sf::RenderWindow &window){
     }
 }
 
-void Pane::addText(sf::Font &font, int fontSize, const sf::String &message, const sf::Color &color, const sf::Vector2f &size, const int &number){
+void Pane::addText(sf::Font &font, int fontSize, const sf::String &message, const sf::Color &color, const sf::Vector2f &size, const int &number, bool clickable){
     text.setNumber(number);
     text.sf::Text::setFont(font);
     text.sf::Text::setCharacterSize(fontSize);
     text.sf::Text::setString(message);
     text.sf::Text::setColor(color);
     text.sf::Text::setPosition(size);
+    text.setClickable(clickable);
 
     texts.push_front(text);
 }
 
-void Pane::addShape(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number){
+void Pane::addShape(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number, bool clickable){
     shape.setNumber(number);
     shape.sf::RectangleShape::setSize(size);
     shape.sf::RectangleShape::setPosition(position);
     shape.sf::RectangleShape::setFillColor(color);
     shape.sf::RectangleShape::setOutlineThickness(thickness);
     shape.sf::RectangleShape::setOutlineColor(thicknessColor);
+    shape.setClickable(clickable);
 
     shapes.push_back(shape);
 }
 
-void Pane::addShape(const int &radius, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number){
+void Pane::addShape(const int &radius, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number, bool clickable){
     circleShape.setNumber(number);
     circleShape.sf::CircleShape::setRadius(radius);
     circleShape.sf::CircleShape::setPosition(position);
     circleShape.sf::CircleShape::setFillColor(color);
     circleShape.sf::CircleShape::setOutlineThickness(thickness);
     circleShape.sf::CircleShape::setOutlineColor(thicknessColor);
+    circleShape.setClickable(clickable);
 
     circles.push_front(circleShape);
 }
 
-void Pane::addShape(const int &radius, const int &pointCount, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number){
+void Pane::addShape(const int &radius, const int &pointCount, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number, bool clickable){
     circleShape.setNumber(number);
     circleShape.sf::CircleShape::setRadius(radius);
     circleShape.sf::CircleShape::setPointCount(pointCount);
@@ -120,6 +124,7 @@ void Pane::addShape(const int &radius, const int &pointCount, const sf::Vector2f
     circleShape.sf::CircleShape::setFillColor(color);
     circleShape.sf::CircleShape::setOutlineThickness(thickness);
     circleShape.sf::CircleShape::setOutlineColor(thicknessColor);
+    circleShape.setClickable(clickable);
 
     circles.push_front(circleShape);
 }
@@ -144,8 +149,48 @@ std::list<Content> Pane::getCircles() const{
     return this->circles;
 }
 
-void Pane::resetCirclesColors(){
+void Pane::resetFamilysColors(sf::Color color){
+    for(std::list<Content>::iterator inte = shapes.begin(); inte != shapes.end(); inte++){
+        if(inte->getClickable()){
+            inte->sf::RectangleShape::setOutlineColor(color);
+        }
+    }
+
+    for(std::list<Content>::iterator inte = texts.begin(); inte != texts.end(); inte++){
+        if(inte->getClickable()){
+            inte->sf::Text::setColor(color);
+        }
+    }
+
     for(std::list<Content>::iterator inte = circles.begin(); inte != circles.end(); inte++){
-        inte->sf::CircleShape::setOutlineColor(sf::Color::Red);
+        if(inte->getClickable()){
+            inte->sf::CircleShape::setOutlineColor(color);
+        }
+    }
+}
+
+void Pane::setColor(const int &id, sf::Color color){
+    for(std::list<Content>::iterator inte = shapes.begin(); inte != shapes.end(); inte++){
+        if(inte->getClickable()){
+            if(inte->getNumber() == id){
+                inte->sf::RectangleShape::setOutlineColor(color);
+            }
+        }
+    }
+
+    for(std::list<Content>::iterator inte = texts.begin(); inte != texts.end(); inte++){
+        if(inte->getClickable()){
+            if(inte->getNumber() == id){
+                inte->sf::Text::setColor(color);
+            }
+        }
+    }
+
+    for(std::list<Content>::iterator inte = circles.begin(); inte != circles.end(); inte++){
+        if(inte->getClickable()){
+            if(inte->getNumber() == id){
+                inte->sf::CircleShape::setOutlineColor(color);
+            }
+        }
     }
 }
