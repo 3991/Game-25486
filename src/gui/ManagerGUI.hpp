@@ -3,8 +3,8 @@
 
 class ManagerGUI {
     private:
-        InfoBox pane;
-        std::vector<InfoBox*> windowList;
+        Pane pane;
+        std::vector<Pane*> windowList;
     public:
         ManagerGUI(void);
         virtual ~ManagerGUI(void);
@@ -18,6 +18,7 @@ class ManagerGUI {
         std::list<Content> getShapes(const int &idPane);
         std::list<Content> getCircles(const int &idPane);
         int getPaneIndex(const int &id);
+        void resetCirclesColors();
 };
 
 ManagerGUI::ManagerGUI(void) {
@@ -28,12 +29,12 @@ ManagerGUI::~ManagerGUI(void) {
 }
 
 void ManagerGUI::addSubwindow(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, int number){
-    pane = InfoBox(size, position, color, thickness, thicknessColor, number);
+    pane = Pane(size, position, color, thickness, thicknessColor, number);
     windowList.push_back(&pane);
 }
 
 void ManagerGUI::draw(sf::RenderWindow &window){
-    //for(std::list<InfoBox>::iterator inte = windowList.begin(); inte != windowList.end(); inte++){
+    //for(std::list<Pane>::iterator inte = windowList.begin(); inte != windowList.end(); inte++){
        //inte->draw(window);
 
    //}
@@ -84,4 +85,8 @@ int ManagerGUI::getPaneIndex(const int &idPane){
         }
     }
     return -1;
+}
+
+void ManagerGUI::resetCirclesColors(){
+    pane.resetCirclesColors();
 }
