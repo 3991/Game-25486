@@ -170,27 +170,38 @@ void Pane::resetFamilysColors(sf::Color color){
 }
 
 void Pane::setColor(const int &id, sf::Color color){
+    bool see = false;
     for(std::list<Content>::iterator inte = shapes.begin(); inte != shapes.end(); inte++){
         if(inte->getClickable()){
             if(inte->getNumber() == id){
                 inte->sf::RectangleShape::setOutlineColor(color);
+                see = true;
+                break;
             }
         }
     }
 
-    for(std::list<Content>::iterator inte = texts.begin(); inte != texts.end(); inte++){
-        if(inte->getClickable()){
-            if(inte->getNumber() == id){
-                inte->sf::Text::setColor(color);
+    if(!see){
+        for(std::list<Content>::iterator inte = texts.begin(); inte != texts.end(); inte++){
+            if(inte->getClickable()){
+                if(inte->getNumber() == id){
+                    inte->sf::Text::setColor(color);
+                    see = true;
+                    break;
+                }
             }
         }
     }
 
-    for(std::list<Content>::iterator inte = circles.begin(); inte != circles.end(); inte++){
-        if(inte->getClickable()){
-            if(inte->getNumber() == id){
-                inte->sf::CircleShape::setOutlineColor(color);
+    if(!see){
+        for(std::list<Content>::iterator inte = circles.begin(); inte != circles.end(); inte++){
+            if(inte->getClickable()){
+                if(inte->getNumber() == id){
+                    inte->sf::CircleShape::setOutlineColor(color);
+                    break;
+                }
             }
         }
     }
+
 }
