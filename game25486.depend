@@ -1,8 +1,10 @@
 # depslib dependency file v1.0
-1434719722 source:c:\program files (x86)\codeblocks\projets\game25486\main.cpp
+1439936836 source:c:\program files (x86)\codeblocks\projets\game25486\main.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	"src/scenes/screens.hpp"
+	<stdio.h>
+	<stdlib.h>
 
 1367997278 c:\program files (x86)\sfml-2.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -360,10 +362,11 @@
 	<iostream>
 	<SFML/Graphics.hpp>
 
-1432831846 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\screens.hpp
+1437612595 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\screens.hpp
 	"cScreen.hpp"
-	"screen_0.hpp"
-	"screen_1.hpp"
+	"scence0/screen_0.hpp"
+	"scence1/screen_1.hpp"
+	"scence2/screen_2.hpp"
 
 1433261819 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\cscreen.hpp
 	<SFML/Graphics.hpp>
@@ -413,9 +416,46 @@
 	<SFML/Graphics.hpp>
 	<list>
 
-1435099669 c:\program files (x86)\codeblocks\projets\game25486\src\gui\pane.hpp
+1439598331 c:\program files (x86)\codeblocks\projets\game25486\src\gui\pane.hpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	"Content.hpp"
 	<list>
+
+1438286298 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scence0\screen_0.hpp
+	<iostream>
+	"../cScreen.hpp"
+	"ManagerGUI.hpp"
+	<SFML/Graphics.hpp>
+
+1437610532 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scence0\managergui.hpp
+	<iostream>
+	<SFML/Graphics.hpp>
+	"../../gui/Pane.hpp"
+
+1444069026 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scence1\screen_1.hpp
+	<iostream>
+	"../cScreen.hpp"
+	"creator/Creator.hpp"
+	"ManagerGui.hpp"
+	<SFML/Graphics.hpp>
+
+1437600568 c:\program files (x86)\codeblocks\projets\game25486\test.h
+
+1437612632 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scence2\screen_2.hpp
+	<iostream>
+	"../cScreen.hpp"
+	<SFML/Graphics.hpp>
+
+1438303599 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scence1\creator.hpp
+	<iostream>
+	<SFML/Graphics.hpp>
+
+1442913331 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scence1\managergui.hpp
+	<iostream>
+	<SFML/Graphics.hpp>
+
+1444066052 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scence1\creator\creator.hpp
+	<iostream>
+	<SFML/Graphics.hpp>
 

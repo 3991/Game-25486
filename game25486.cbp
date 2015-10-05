@@ -47,15 +47,18 @@
 			<Add directory="C:/Program Files (x86)/SFML-2.1/lib" />
 		</Linker>
 		<Unit filename="main.cpp" />
-		<Unit filename="src/Manager.hpp" />
-		<Unit filename="src/Player.hpp" />
 		<Unit filename="src/gui/Content.hpp" />
-		<Unit filename="src/gui/ManagerGUI.hpp" />
 		<Unit filename="src/gui/Pane.hpp" />
 		<Unit filename="src/scenes/cScreen.cpp" />
 		<Unit filename="src/scenes/cScreen.hpp" />
-		<Unit filename="src/scenes/screen_0.hpp" />
-		<Unit filename="src/scenes/screen_1.hpp" />
+		<Unit filename="src/scenes/scence0/ManagerGUI.hpp" />
+		<Unit filename="src/scenes/scence0/screen_0.hpp" />
+		<Unit filename="src/scenes/scence1/ManagerGui.hpp" />
+		<Unit filename="src/scenes/scence1/Player.hpp" />
+		<Unit filename="src/scenes/scence1/creator/Creator.hpp" />
+		<Unit filename="src/scenes/scence1/screen_1.hpp" />
+		<Unit filename="src/scenes/scence2/ManagerGui.hpp" />
+		<Unit filename="src/scenes/scence2/screen_2.hpp" />
 		<Unit filename="src/scenes/screens.hpp" />
 		<Extensions>
 			<code_completion />

@@ -71,12 +71,12 @@ void Pane::draw(sf::RenderWindow &window){
         window.draw((sf::RectangleShape)*inte);
     }
 
-    for(std::list<Content>::iterator inte = texts.begin(); inte != texts.end(); inte++){
-        window.draw((sf::Text)*inte);
-    }
-
     for(std::list<Content>::iterator inte = circles.begin(); inte != circles.end(); inte++){
         window.draw((sf::CircleShape)*inte);
+    }
+    /*Important afficher texts en dernier pour passer sur la forme*/
+    for(std::list<Content>::iterator inte = texts.begin(); inte != texts.end(); inte++){
+        window.draw((sf::Text)*inte);
     }
 }
 
@@ -153,6 +153,7 @@ void Pane::resetFamilysColors(sf::Color color){
     for(std::list<Content>::iterator inte = shapes.begin(); inte != shapes.end(); inte++){
         if(inte->getClickable()){
             inte->sf::RectangleShape::setOutlineColor(color);
+            inte->sf::RectangleShape::setOutlineThickness(2);
         }
     }
 
@@ -165,6 +166,7 @@ void Pane::resetFamilysColors(sf::Color color){
     for(std::list<Content>::iterator inte = circles.begin(); inte != circles.end(); inte++){
         if(inte->getClickable()){
             inte->sf::CircleShape::setOutlineColor(color);
+            inte->sf::CircleShape::setOutlineThickness(2);
         }
     }
 }
@@ -175,6 +177,7 @@ void Pane::setColor(const int &id, sf::Color color){
         if(inte->getClickable()){
             if(inte->getNumber() == id){
                 inte->sf::RectangleShape::setOutlineColor(color);
+                inte->sf::RectangleShape::setOutlineThickness(5);
                 see = true;
                 break;
             }
@@ -198,6 +201,7 @@ void Pane::setColor(const int &id, sf::Color color){
             if(inte->getClickable()){
                 if(inte->getNumber() == id){
                     inte->sf::CircleShape::setOutlineColor(color);
+                    inte->sf::CircleShape::setOutlineThickness(5);
                     break;
                 }
             }

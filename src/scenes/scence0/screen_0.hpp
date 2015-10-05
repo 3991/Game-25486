@@ -1,49 +1,46 @@
 #include <iostream>
-#include "cScreen.hpp"
-#include "../gui/Pane.hpp"
-#include "../gui/ManagerGUI.hpp"
+#include "../cScreen.hpp"
+#include "ManagerGUI.hpp"
 #include <SFML/Graphics.hpp>
 
-namespace screen0
-{
-class screen_0 : public cScreen {
-    private:
-        sf::Font font;
-        bool click;
-        int clickable;
-        sf::Text text, tileSubWindowText, nameMenuText, familyMenuText, choiceSubTitleText, continueSubWindowText, quitSubWindowText;
-        Pane subWindowRect, barSubWindowRect, ;
-        ManagerGUI managerGui;
-        sf::CircleShape circle, triangle, square, hexagon, pentagon;
-        sf::RectangleShape rectangle, textAreaRect;
-        sf::FloatRect textAreaDetection, continueTextDetectionDetection, quitTextDetectionDetection, circleDetection, triangleDetection, squareDetection, hexagonDetection, pentagonDetection, rectangleDetection;
-    public:
-        screen_0(void);
-        virtual int Run(sf::RenderWindow &App);
-        int load();
-        void initText();
-        void initShape();
-        sf::FloatRect createDetectionArea(sf::FloatRect rect, float left, float top, float width, float height) const;
-};
-const int FONT_SIZE = 18;
+namespace screen0{
+    class screen_0 : public cScreen {
+        private:
+            sf::Font font;
+            bool click;
+            int clickable;
+            sf::Text text, tileSubWindowText, nameMenuText, familyMenuText, choiceSubTitleText, continueSubWindowText, quitSubWindowText;
+            ManagerGUI managerGui;
+            sf::CircleShape circle, triangle, square, hexagon, pentagon;
+            sf::RectangleShape rectangle, textAreaRect;
+            sf::FloatRect textAreaDetection, continueTextDetectionDetection, quitTextDetectionDetection, circleDetection, triangleDetection, squareDetection, hexagonDetection, pentagonDetection, rectangleDetection;
+        public:
+            screen_0(void);
+            virtual int Run(sf::RenderWindow &App);
+            int load();
+            void initText();
+            void initShape();
+            sf::FloatRect createDetectionArea(sf::FloatRect rect, float left, float top, float width, float height) const;
+    };
+    const int FONT_SIZE = 18;
 
-const int WINDOW = 1;
+    const int WINDOW = 1;
 
-const int TITLE_TEXT = 2;
-const int PSEUDO_TEXT = 3;
-const int SUB_TITLE_NAME_TEXT = 4;
-const int SUB_TITLE_FAMILY_TEXT = 5;
-const int SUB_TITLE_CHOICE_TEXT = 6;
-const int CONTINUE_TEXT = 7;
-const int QUIT_TEXT = 8;
+    const int TITLE_TEXT = 2;
+    const int PSEUDO_TEXT = 3;
+    const int SUB_TITLE_NAME_TEXT = 4;
+    const int SUB_TITLE_FAMILY_TEXT = 5;
+    const int SUB_TITLE_CHOICE_TEXT = 6;
+    const int CONTINUE_TEXT = 7;
+    const int QUIT_TEXT = 8;
 
-const int CIRCLE_SHAPE = 9;
-const int TRIANGLE_SHAPE = 10;
-const int SQUARE_SHAPE = 11;
-const int HEXAGON_SHAPE = 12;
-const int PENTAGON_SHAPE = 13;
-const int RECTANGLE_SHAPE = 14;
-const int TEXT_AREA_SHAPE = 15;
+    const int CIRCLE_SHAPE = 9;
+    const int TRIANGLE_SHAPE = 10;
+    const int SQUARE_SHAPE = 11;
+    const int HEXAGON_SHAPE = 12;
+    const int PENTAGON_SHAPE = 13;
+    const int RECTANGLE_SHAPE = 14;
+    const int TEXT_AREA_SHAPE = 15;
 }
 
 using namespace screen0;
@@ -153,7 +150,12 @@ int screen_0::Run(sf::RenderWindow &App) {
                 clickable = PENTAGON_SHAPE;
                 managerGui.setColor(WINDOW, PENTAGON_SHAPE, sf::Color(16, 52, 166, 255));
             }else if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && continueTextDetectionDetection.contains(sf::Mouse::getPosition(App).x, sf::Mouse::getPosition(App).y)){
-                return (1);
+
+                if(click){
+                    return (1);
+                }else{
+                    std::cout << "Selectionner une famille" << std::endl;
+                }
             }else if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && quitTextDetectionDetection.contains(sf::Mouse::getPosition(App).x, sf::Mouse::getPosition(App).y)){
                 return (-1);
             }
@@ -190,6 +192,7 @@ int screen_0::Run(sf::RenderWindow &App) {
                    if (Event.text.unicode < 128){
                         textes += Event.text.unicode;
                         text.setString(textes);
+                        managerGui.addText(font, FONT_SIZE, text.getString(), sf::Color(0, 0, 0, 255), {140.f, 180.f}, PSEUDO_TEXT, WINDOW, false);
                    }
                 }
             }
@@ -228,11 +231,11 @@ void screen_0::initText() {
     text.setPosition(125, 190);
 
     managerGui.addText(font, FONT_SIZE, "Birth-certificate", sf::Color::White, {105.f, 105.f}, TITLE_TEXT, WINDOW, false);
-    managerGui.addText(font, FONT_SIZE, "Continue", sf::Color::Black, {200.f, 470.f}, CONTINUE_TEXT, WINDOW, true);
-    managerGui.addText(font, FONT_SIZE, "Quit", sf::Color::Black, {200.f, 490.f}, QUIT_TEXT, WINDOW, true);
-    managerGui.addText(font, FONT_SIZE, "1. What's your name ?", sf::Color(0, 0, 0, 255), {170.f, 160.f}, SUB_TITLE_NAME_TEXT, WINDOW, false);
-    managerGui.addText(font, FONT_SIZE, "2. What's your family ?", sf::Color(0, 0, 0, 255), {170.f, 270.f}, SUB_TITLE_FAMILY_TEXT, WINDOW, false);
-    managerGui.addText(font, FONT_SIZE, "3. Now make a choice", sf::Color(0, 0, 0, 255), {170.f, 450.f}, SUB_TITLE_CHOICE_TEXT, WINDOW, false);
+    managerGui.addText(font, FONT_SIZE, "Start this new life", sf::Color::Black, {200.f, 470.f}, CONTINUE_TEXT, WINDOW, true);
+    managerGui.addText(font, FONT_SIZE, "Leave, left, left", sf::Color::Black, {200.f, 490.f}, QUIT_TEXT, WINDOW, true);
+    managerGui.addText(font, FONT_SIZE, "1. What's your new name ?", sf::Color(0, 0, 0, 255), {170.f, 160.f}, SUB_TITLE_NAME_TEXT, WINDOW, false);
+    managerGui.addText(font, FONT_SIZE, "2. What's your faith ?", sf::Color(0, 0, 0, 255), {170.f, 270.f}, SUB_TITLE_FAMILY_TEXT, WINDOW, false);
+    managerGui.addText(font, FONT_SIZE, "3. Now make a good choice", sf::Color(0, 0, 0, 255), {170.f, 450.f}, SUB_TITLE_CHOICE_TEXT, WINDOW, false);
 }
 
 void screen_0::initShape() {
