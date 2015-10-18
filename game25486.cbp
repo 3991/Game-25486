@@ -54,6 +54,7 @@
 		<Unit filename="src/scenes/scence0/ManagerGUI.hpp" />
 		<Unit filename="src/scenes/scence0/screen_0.hpp" />
 		<Unit filename="src/scenes/scence1/ManagerGui.hpp" />
+		<Unit filename="src/scenes/scence1/Object.hpp" />
 		<Unit filename="src/scenes/scence1/Player.hpp" />
 		<Unit filename="src/scenes/scence1/creator/Creator.hpp" />
 		<Unit filename="src/scenes/scence1/screen_1.hpp" />

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
-
+#include "./../Object.hpp"
+#include <sstream>
 
 namespace creator{
     class Creator {
@@ -14,6 +15,8 @@ namespace creator{
         sf::VertexArray llines;
         int numberLines;
         sf::ConvexShape l;
+        Object object;
+        sf::Text text;
     public:
         Creator(void);
         virtual ~Creator(void);
@@ -52,14 +55,51 @@ namespace creator{
     const int OBJECT_TEXT_ID = 2;
     const int BUILDING_SHAPE_ID = 3;
     const int BUILDING_TEXT_ID = 4;
-    const int CONSUMER_SHAPE_ID = 5;
-    const int CONSUMER_TEXT_ID = 6;
-    const int EQUIP_SHAPE_ID = 7;
-    const int EQUIP_TEXT_ID = 8;
-    const int RAWMATERIAL_SHAPE_ID = 9;
-    const int RAWMATERIAL_TEXT_ID = 10;
-    const int CONFIRM_SHAPE_ID = 11;
-    const int CONFIRM_TEXT_ID = 12;
+
+    const int POLLUTION_LESS_SHAPE_ID = 7;
+    const int POLLUTION_LESS_TEXT_ID = 8;
+    const int POLLUTION_NUMBER_TEXT_ID = 9;
+    const int POLLUTION_MORE_SHAPE_ID = 10;
+    const int POLLUTION_MORE_TEXT_ID = 11;
+    const int POLLUTION_TEXT_ID = 12;
+
+    const int LIFETIME_LESS_SHAPE_ID = 13;
+    const int LIFETIME_LESS_TEXT_ID = 14;
+    const int LIFETIME_NUMBER_TEXT_ID = 15;
+    const int LIFETIME_MORE_SHAPE_ID = 16;
+    const int LIFETIME_MORE_TEXT_ID = 17;
+    const int LIFETIME_TEXT_ID = 18;
+
+    const int HEALTH_LESS_SHAPE_ID = 19;
+    const int HEALTH_LESS_TEXT_ID = 20;
+    const int HEALTH_NUMBER_TEXT_ID = 21;
+    const int HEALTH_MORE_SHAPE_ID = 22;
+    const int HEALTH_MORE_TEXT_ID = 23;
+    const int HEALTH_TEXT_ID = 24;
+
+    const int LOVE_LESS_SHAPE_ID = 25;
+    const int LOVE_LESS_TEXT_ID = 26;
+    const int LOVE_NUMBER_TEXT_ID = 27;
+    const int LOVE_MORE_SHAPE_ID = 28;
+    const int LOVE_MORE_TEXT_ID = 29;
+    const int LOVE_TEXT_ID = 30;
+
+    const int SLEEP_LESS_SHAPE_ID = 31;
+    const int SLEEP_LESS_TEXT_ID = 32;
+    const int SLEEP_NUMBER_TEXT_ID = 33;
+    const int SLEEP_MORE_SHAPE_ID = 34;
+    const int SLEEP_MORE_TEXT_ID = 35;
+    const int SLEEP_TEXT_ID = 36;
+
+    const int SAFETY_LESS_SHAPE_ID = 37;
+    const int SAFETY_LESS_TEXT_ID = 38;
+    const int SAFETY_NUMBER_TEXT_ID = 39;
+    const int SAFETY_MORE_SHAPE_ID = 40;
+    const int SAFETY_MORE_TEXT_ID = 41;
+    const int SAFETY_TEXT_ID = 42;
+
+    const int CONFIRM_SHAPE_ID = 43;
+    const int CONFIRM_TEXT_ID = 44;
 }
 
 using namespace creator;
@@ -75,6 +115,19 @@ void Creator::init(sf::Font &font, int fontSize){
     createMode = false;
     numberLines = 1;
 
+std::string jour = "Jour : ";
+
+
+    std::string result;
+    std::stringstream sstm;
+
+    sstm << object.getLove();
+    result = sstm.str();
+
+
+    text.setString(result);
+
+
     addShape(sf::Vector2f(DRAWNING_AREA_WIDTH, DRAWNING_AREA_HEIGHT), sf::Vector2f(DRAWNING_AREA_X, DRAWNING_AREA_Y), sf::Color::White, 2, sf::Color(0, 0, 0), 0, DRAWNING_AREA_ID, true);
 
     addShape(sf::Vector2f(10, 10), {600.f, 50.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), OBJECT_SHAPE_ID, OPTIONS_AREA_ID, true);
@@ -85,17 +138,60 @@ void Creator::init(sf::Font &font, int fontSize){
     addText(font, fontSize, "Building", sf::Color(0, 0, 0, 255), {620.f, 72.f}, BUILDING_TEXT_ID, OPTIONS_AREA_ID, false);
 
 
-    addShape(sf::Vector2f(10, 10), {600.f, 160.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), CONSUMER_SHAPE_ID, OPTIONS_AREA_ID, true);
-    sf::FloatRect consommerDetection(600, 160, 10, 10);
-    addText(font, fontSize, "Consommer", sf::Color(0, 0, 0, 255), {620.f, 152.f}, CONSUMER_TEXT_ID, OPTIONS_AREA_ID, false);
+    addShape(sf::Vector2f(10, 10), {600.f, 160.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), POLLUTION_LESS_SHAPE_ID, OPTIONS_AREA_ID, true);
+    sf::FloatRect pollutionLessDetection(600, 160, 10, 10);
+    addText(font, fontSize, "-", sf::Color(0, 0, 0, 255), {603.f, 152.f}, POLLUTION_LESS_TEXT_ID, OPTIONS_AREA_ID, false);
+    addText(font, fontSize, text.getString(), sf::Color(0, 0, 0, 255), {620.f, 152.f}, POLLUTION_NUMBER_TEXT_ID, OPTIONS_AREA_ID, false);
+    addShape(sf::Vector2f(10, 10), {650.f, 160.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), POLLUTION_MORE_SHAPE_ID, OPTIONS_AREA_ID, true);
+    sf::FloatRect pollutionMoreDetection(650, 160, 10, 10);
+    addText(font, fontSize, "+", sf::Color(0, 0, 0, 255), {650.f, 152.f}, POLLUTION_MORE_TEXT_ID, OPTIONS_AREA_ID, false);
+    addText(font, fontSize, "Pollution", sf::Color(0, 0, 0, 255), {670.f, 152.f}, POLLUTION_TEXT_ID, OPTIONS_AREA_ID, false);
 
-    addShape(sf::Vector2f(10, 10), {600.f, 190.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), EQUIP_SHAPE_ID, OPTIONS_AREA_ID, true);
-    sf::FloatRect equiperDetection(600, 190, 10, 10);
-    addText(font, fontSize, "Equiper", sf::Color(0, 0, 0, 255), {620.f, 182.f}, EQUIP_TEXT_ID, OPTIONS_AREA_ID, false);
+    addShape(sf::Vector2f(10, 10), {600.f, 190.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0),LIFETIME_LESS_SHAPE_ID, OPTIONS_AREA_ID, true);
+    sf::FloatRect lifetimeLessDetection(600, 190, 10, 10);
+    addText(font, fontSize, "-", sf::Color(0, 0, 0, 255), {603.f, 182.f}, LIFETIME_LESS_TEXT_ID, OPTIONS_AREA_ID, false);
+    addText(font, fontSize, "12", sf::Color(0, 0, 0, 255), {620.f, 182.f}, LIFETIME_NUMBER_TEXT_ID, OPTIONS_AREA_ID, false);
+    addShape(sf::Vector2f(10, 10), {650.f, 190.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), LIFETIME_MORE_SHAPE_ID, OPTIONS_AREA_ID, true);
+    sf::FloatRect lifetimeMoreDetection(650, 190, 10, 10);
+    addText(font, fontSize, "+", sf::Color(0, 0, 0, 255), {650.f, 182.f}, LIFETIME_MORE_TEXT_ID, OPTIONS_AREA_ID, false);
+    addText(font, fontSize, "Lifetime", sf::Color(0, 0, 0, 255), {670.f, 182.f}, LIFETIME_TEXT_ID, OPTIONS_AREA_ID, false);
 
-    addShape(sf::Vector2f(10, 10), {600.f, 220.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), RAWMATERIAL_SHAPE_ID, OPTIONS_AREA_ID, true);
-    sf::FloatRect matpremiereDetection(600, 220, 10, 10);
-    addText(font, fontSize, "Matière première", sf::Color(0, 0, 0, 255), {620.f, 212.f}, RAWMATERIAL_TEXT_ID, OPTIONS_AREA_ID, false);
+    addShape(sf::Vector2f(10, 10), {600.f, 220.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), HEALTH_LESS_SHAPE_ID, OPTIONS_AREA_ID, true);
+    sf::FloatRect healthLessDetection(600, 220, 10, 10);
+    addText(font, fontSize, "-", sf::Color(0, 0, 0, 255), {603.f, 212.f}, HEALTH_LESS_TEXT_ID, OPTIONS_AREA_ID, false);
+    addText(font, fontSize, "12", sf::Color(0, 0, 0, 255), {620.f, 212.f}, HEALTH_NUMBER_TEXT_ID, OPTIONS_AREA_ID, false);
+    addShape(sf::Vector2f(10, 10), {650.f, 220.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), HEALTH_MORE_SHAPE_ID, OPTIONS_AREA_ID, true);
+    sf::FloatRect healthMoreDetection(650, 220, 10, 10);
+    addText(font, fontSize, "+", sf::Color(0, 0, 0, 255), {650.f, 212.f}, HEALTH_MORE_TEXT_ID, OPTIONS_AREA_ID, false);
+    addText(font, fontSize, "Health", sf::Color(0, 0, 0, 255), {670.f, 212.f}, HEALTH_TEXT_ID, OPTIONS_AREA_ID, false);
+
+    addShape(sf::Vector2f(10, 10), {600.f, 250.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), LOVE_LESS_SHAPE_ID, OPTIONS_AREA_ID, true);
+    sf::FloatRect loveLessDetection(600, 250, 10, 10);
+    addText(font, fontSize, "-", sf::Color(0, 0, 0, 255), {603.f, 242.f}, LOVE_LESS_TEXT_ID, OPTIONS_AREA_ID, false);
+    addText(font, fontSize, "12", sf::Color(0, 0, 0, 255), {620.f, 242.f}, LOVE_NUMBER_TEXT_ID, OPTIONS_AREA_ID, false);
+    addShape(sf::Vector2f(10, 10), {650.f, 250.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), LOVE_MORE_SHAPE_ID, OPTIONS_AREA_ID, true);
+    sf::FloatRect loveMoreDetection(650, 250, 10, 10);
+    addText(font, fontSize, "+", sf::Color(0, 0, 0, 255), {650.f, 242.f}, LOVE_MORE_TEXT_ID, OPTIONS_AREA_ID, false);
+    addText(font, fontSize, "Love", sf::Color(0, 0, 0, 255), {670.f, 242.f}, LOVE_TEXT_ID, OPTIONS_AREA_ID, false);
+
+    addShape(sf::Vector2f(10, 10), {600.f, 280.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), SLEEP_LESS_SHAPE_ID, OPTIONS_AREA_ID, true);
+    sf::FloatRect sleepLessDetection(600, 280, 10, 10);
+    addText(font, fontSize, "-", sf::Color(0, 0, 0, 255), {603.f, 272.f}, SLEEP_LESS_TEXT_ID, OPTIONS_AREA_ID, false);
+    addText(font, fontSize, "12", sf::Color(0, 0, 0, 255), {620.f, 272.f}, SLEEP_NUMBER_TEXT_ID, OPTIONS_AREA_ID, false);
+    addShape(sf::Vector2f(10, 10), {650.f, 280.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), SLEEP_MORE_SHAPE_ID, OPTIONS_AREA_ID, true);
+    sf::FloatRect sleepMoreDetection(650, 280, 10, 10);
+    addText(font, fontSize, "+", sf::Color(0, 0, 0, 255), {650.f, 272.f}, SLEEP_MORE_TEXT_ID, OPTIONS_AREA_ID, false);
+    addText(font, fontSize, "Sleep", sf::Color(0, 0, 0, 255), {670.f, 272.f}, SLEEP_TEXT_ID, OPTIONS_AREA_ID, false);
+
+    addShape(sf::Vector2f(10, 10), {600.f, 310.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), SAFETY_LESS_SHAPE_ID, OPTIONS_AREA_ID, true);
+    sf::FloatRect safetyLessDetection(600, 310, 10, 10);
+    addText(font, fontSize, "-", sf::Color(0, 0, 0, 255), {603.f, 302.f}, SAFETY_LESS_TEXT_ID, OPTIONS_AREA_ID, false);
+    addText(font, fontSize, "12", sf::Color(0, 0, 0, 255), {620.f, 302.f}, SAFETY_NUMBER_TEXT_ID, OPTIONS_AREA_ID, false);
+    addShape(sf::Vector2f(10, 10), {650.f, 310.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), SAFETY_MORE_SHAPE_ID, OPTIONS_AREA_ID, true);
+    sf::FloatRect safetyMoreDetection(650, 310, 10, 10);
+    addText(font, fontSize, "+", sf::Color(0, 0, 0, 255), {650.f, 302.f}, SAFETY_MORE_TEXT_ID, OPTIONS_AREA_ID, false);
+    addText(font, fontSize, "Safety", sf::Color(0, 0, 0, 255), {670.f, 302.f}, SAFETY_TEXT_ID, OPTIONS_AREA_ID, false);
+
 
     addShape(25, sf::Vector2f(700, 500), sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), CONFIRM_SHAPE_ID, OPTIONS_AREA_ID, true);
     addText(font, 50, ">", sf::Color::Green, {710.f, 490.f}, CONFIRM_TEXT_ID, OPTIONS_AREA_ID, false);
@@ -229,6 +325,148 @@ void Creator::updateSelection(sf::RenderWindow &window){
         resetFamilysColors(OPTIONS_AREA_ID ,sf::Color::Black);
         setColor(OPTIONS_AREA_ID, BUILDING_SHAPE_ID, sf::Color::Red);
     }
+
+
+    sf::FloatRect pollutionLessDetection(600, 160, 10, 10);
+    sf::FloatRect pollutionMoreDetection(650, 160, 10, 10);
+
+    sf::FloatRect lifetimeLessDetection(600, 190, 10, 10);
+    sf::FloatRect lifetimeMoreDetection(650, 190, 10, 10);
+
+    sf::FloatRect healthMoreDetection(600, 220, 10, 10);
+    sf::FloatRect healthLessDetection(650, 220, 10, 10);
+
+    sf::FloatRect loveLessDetection(600, 250, 10, 10);
+    sf::FloatRect loveMoreDetection(650, 250, 10, 10);
+
+    sf::FloatRect sleepLessDetection(600, 280, 10, 10);
+    sf::FloatRect sleepMoreDetection(650, 280, 10, 10);
+
+    sf::FloatRect safetyLessDetection(600, 310, 10, 10);
+    sf::FloatRect safetyMoreDetection(650, 310, 10, 10);
+
+    if(pollutionLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        std::string result;
+        std::stringstream sstm;
+        int tmp = object.getPollution();
+        tmp--;
+        if(tmp < 0) tmp = 0;
+        sstm << tmp;
+        result = sstm.str();
+
+        pane.setText(POLLUTION_NUMBER_TEXT_ID, result);
+    }else if(pollutionMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        std::string result;
+        std::stringstream sstm;
+        int tmp = object.getPollution();
+        tmp++;
+
+        sstm << tmp;
+        result = sstm.str();
+
+        pane.setText(POLLUTION_NUMBER_TEXT_ID, result);
+    }else if(lifetimeLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        std::string result;
+        std::stringstream sstm;
+        int tmp = object.getLifetime();
+        tmp--;
+        if(tmp < 0) tmp = 0;
+        sstm << tmp;
+        result = sstm.str();
+
+        pane.setText(LIFETIME_NUMBER_TEXT_ID, result);
+    }else if(lifetimeMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        std::string result;
+        std::stringstream sstm;
+        int tmp = object.getLifetime();
+        tmp++;
+
+        sstm << tmp;
+        result = sstm.str();
+
+        pane.setText(LIFETIME_NUMBER_TEXT_ID, result);
+    }else if(healthLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        std::string result;
+        std::stringstream sstm;
+        int tmp = object.getHealth();
+        tmp--;
+        if(tmp < 0) tmp = 0;
+        sstm << tmp;
+        result = sstm.str();
+
+        pane.setText(HEALTH_NUMBER_TEXT_ID, result);
+    }else if(healthMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        std::string result;
+        std::stringstream sstm;
+        int tmp = object.getHealth();
+        tmp++;
+
+        sstm << tmp;
+        result = sstm.str();
+
+        pane.setText(HEALTH_NUMBER_TEXT_ID, result);
+    }else if(loveLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        std::string result;
+        std::stringstream sstm;
+        int tmp = object.getLove();
+        tmp--;
+        if(tmp < 0) tmp = 0;
+        sstm << tmp;
+        result = sstm.str();
+
+        pane.setText(LOVE_NUMBER_TEXT_ID, result);
+    }else if(loveMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        std::string result;
+        std::stringstream sstm;
+        int tmp = object.getLove();
+        tmp++;
+
+        sstm << tmp;
+        result = sstm.str();
+
+        pane.setText(LOVE_NUMBER_TEXT_ID, result);
+    }else if(sleepLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        std::string result;
+        std::stringstream sstm;
+        int tmp = object.getSleep();
+        tmp--;
+        if(tmp < 0) tmp = 0;
+        sstm << tmp;
+        result = sstm.str();
+
+        pane.setText(SLEEP_NUMBER_TEXT_ID, result);
+    }else if(sleepMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        std::string result;
+        std::stringstream sstm;
+        int tmp = object.getSleep();
+        tmp++;
+
+        sstm << tmp;
+        result = sstm.str();
+
+        pane.setText(SLEEP_NUMBER_TEXT_ID, result);
+    }else if(safetyLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        std::string result;
+        std::stringstream sstm;
+        int tmp = object.getSafety();
+        tmp--;
+        if(tmp < 0) tmp = 0;
+        sstm << tmp;
+        result = sstm.str();
+
+        pane.setText(SAFETY_NUMBER_TEXT_ID, result);
+    }else if(safetyMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        std::string result;
+        std::stringstream sstm;
+        int tmp = object.getSafety();
+        tmp++;
+
+        sstm << tmp;
+        result = sstm.str();
+
+        pane.setText(SAFETY_NUMBER_TEXT_ID, result);
+    }
+
 
     if(confirmDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && getCreateMode()) {
         setLines(vertices);

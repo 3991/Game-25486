@@ -21,6 +21,7 @@ class ManagerGui {
         void resetFamilysColors(const int &idPane, sf::Color color);
         void setColor(const int &idPane, const int &id, sf::Color color);
         void drawLines(sf::RenderWindow &window, sf::ConvexShape lines);
+        void setText(sf::String &message, const int &number, const int &idPane);
 };
 
 ManagerGui::ManagerGui(void) {
@@ -44,6 +45,11 @@ void ManagerGui::draw(sf::RenderWindow &window){
 void ManagerGui::addText(sf::Font &font, int fontSize, const sf::String &message, const sf::Color &color, const sf::Vector2f &size, const int &number, const int &idPane, bool clickable){
     int index = getPaneIndex(idPane);
     windowList[index]->addText(font, fontSize, message, color, size, number, clickable);
+}
+
+void ManagerGui::setText(sf::String &message, const int &number, const int &idPane){
+    int index = getPaneIndex(idPane);
+    windowList[index]->setText(number, message);
 }
 
 void ManagerGui::addShape(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number, const int &idPane, bool clickable){
@@ -86,7 +92,6 @@ int ManagerGui::getPaneIndex(const int &idPane){
 }
 
 void ManagerGui::drawLines(sf::RenderWindow &window, sf::ConvexShape lines){
-
     window.draw(lines);
     //window.draw(&vertices[0], vertices.size(), sf::Lines);
 }

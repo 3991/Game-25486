@@ -33,6 +33,7 @@ class Pane {
         std::list<Content> getShapes() const;
         void resetFamilysColors(sf::Color color);
         void setColor(const int &id, sf::Color color);
+        void setText(const int number, const sf::String &message);
 };
 
 Pane::Pane(void) {
@@ -90,6 +91,14 @@ void Pane::addText(sf::Font &font, int fontSize, const sf::String &message, cons
     text.setClickable(clickable);
 
     texts.push_front(text);
+}
+
+void Pane::setText(const int number, const sf::String &message){
+    for(std::list<Content>::iterator inte = texts.begin(); inte != texts.end(); inte++){
+        if(inte->getNumber() == number){
+            inte->sf::Text::setString(message);
+        }
+    }
 }
 
 void Pane::addShape(const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &thicknessColor, const int &number, bool clickable){

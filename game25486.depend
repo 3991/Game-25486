@@ -416,13 +416,13 @@
 	<SFML/Graphics.hpp>
 	<list>
 
-1439598331 c:\program files (x86)\codeblocks\projets\game25486\src\gui\pane.hpp
+1445177366 c:\program files (x86)\codeblocks\projets\game25486\src\gui\pane.hpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	"Content.hpp"
 	<list>
 
-1438286298 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scence0\screen_0.hpp
+1444080989 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scence0\screen_0.hpp
 	<iostream>
 	"../cScreen.hpp"
 	"ManagerGUI.hpp"
@@ -451,11 +451,18 @@
 	<iostream>
 	<SFML/Graphics.hpp>
 
-1442913331 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scence1\managergui.hpp
+1445177185 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scence1\managergui.hpp
 	<iostream>
 	<SFML/Graphics.hpp>
 
-1444066052 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scence1\creator\creator.hpp
+1445181406 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scence1\creator\creator.hpp
 	<iostream>
+	<SFML/Graphics.hpp>
+	"./../Object.hpp"
+	<sstream>
+
+1445174629 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scence1\object.hpp
+	<iostream>
+	"./../cScreen.hpp"
 	<SFML/Graphics.hpp>
 
