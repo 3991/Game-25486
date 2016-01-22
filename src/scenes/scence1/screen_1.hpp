@@ -7,16 +7,22 @@
 namespace screen1{
     class screen_1 : public cScreen{
         private:
-            sf::RectangleShape rectangle, menuBarRect, builduingRect, engineerRect, infoRect;
+            sf::RectangleShape player, menuBarRect, builduingRect, infoRect;
             sf::Text employeesText, engineerText, directorText, createBuildingText, modifyBuildingText, createTemwork, buildingImagine, dayText, moneyText, reputationText;
             sf::Font font;
             ManagerGui managerGUI;
             Creator creator;
             int day, money;
+            sf::Clock clock;
+            int elapsed1;
         public:
             screen_1(void);
             virtual int Run(sf::RenderWindow &App);
             int load();
+            void initRectangleShape(sf::RectangleShape &rectangle, const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color);
+            void initRectangleShape(sf::RectangleShape &rectangle, const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &outlineColor);
+            void initText(sf::Text &text, const sf::Font &font, const int &characterSize, const std::string &message, const sf::Vector2f &position, const sf::Color &color);
+            void createNotAvailablePage(const int &number, const int &idPane);
     };
 
     const int SPEED = 7;
@@ -46,108 +52,50 @@ namespace screen1{
 using namespace screen1;
 
 screen_1::screen_1(void){
-    rectangle.setOutlineThickness(3);
-    rectangle.setOutlineColor(sf::Color(0, 0, 0, 255));
-    rectangle.setSize({50.f, 50.f});
-    rectangle.setPosition({50.f, 50.f});
+    initRectangleShape(player, sf::Vector2f(50, 50), sf::Vector2f(50, 50), sf::Color::White, 3, sf::Color::Black);
 }
 
 int screen_1::Run(sf::RenderWindow &App){
     sf::Event Event;
     bool Running = true, testMenu1 = false, click = false, ingameMode = true, startDrawning = false;
-    day = 0, money = 0;
+    day = 1, money = 0;
     int x, y;
-
+    elapsed1 = 0;
     load();
+
+    sf::View view1(sf::FloatRect(0, 0, 800, 600));
+    view1.setCenter(player.getPosition());
 
     creator.init(font, 18);
 
-    // RECT
-    menuBarRect.setSize((sf::Vector2f(800, 30)));
-    menuBarRect.setPosition(sf::Vector2f(0, 0));
-    menuBarRect.setFillColor(sf::Color(237, 237, 237));
 
-    builduingRect.setSize(sf::Vector2f(250, 270));
-    builduingRect.setPosition(sf::Vector2f(5, 5));
-    builduingRect.setFillColor(sf::Color(245, 245, 245, 250));
+    initRectangleShape(menuBarRect, sf::Vector2f(800, 30), sf::Vector2f(0, 0), sf::Color(237, 237, 237));
+    initRectangleShape(builduingRect, sf::Vector2f(250, 200), sf::Vector2f(5, 5), sf::Color(245, 245, 245, 250));
+    initRectangleShape(infoRect, sf::Vector2f(170, 110), sf::Vector2f(680, 40), sf::Color(245, 245, 245, 220), 1, sf::Color(237, 237, 237));
 
-    engineerRect.setSize(sf::Vector2f(170, 110));
-    engineerRect.setPosition(sf::Vector2f(110, 5));
-    engineerRect.setFillColor(sf::Color(245, 245, 245));
+
+    initText(dayText, font, 18, ">Day 1", sf::Vector2f(690, 40), sf::Color::Black);
+    initText(moneyText, font, 18, ">$0", sf::Vector2f(690, 60), sf::Color::Black);
+    initText(reputationText, font, 18, ">0 friend(s)", sf::Vector2f(690, 80), sf::Color::Black);
 
 
 
-
-
-    infoRect.setSize(sf::Vector2f(170, 110));
-    infoRect.setPosition(sf::Vector2f(680, 40));
-    infoRect.setFillColor(sf::Color(245, 245, 245, 220));
-    infoRect.setOutlineThickness(1);
-    infoRect.setOutlineColor(sf::Color(237, 237, 237));
-
-    dayText.setFont(font);
-    dayText.setCharacterSize(18);
-    dayText.setString(">Day 1");
-    dayText.setPosition({ 690.f, 40.f });
-    dayText.setColor(sf::Color::Black);
-
-    moneyText.setFont(font);
-    moneyText.setCharacterSize(18);
-    moneyText.setString(">$0");
-    moneyText.setPosition({ 690.f, 60.f });
-    moneyText.setColor(sf::Color::Black);
-
-    reputationText.setFont(font);
-    reputationText.setCharacterSize(18);
-    reputationText.setString(">0 friend(s)");
-    reputationText.setPosition({ 690.f, 80.f });
-    reputationText.setColor(sf::Color::Black);
 
     //Employes - Ingenieers - director
     // create building - destroy - modify
     //Creat teamwork - manage - building imagine
     //create complany
-    employeesText.setFont(font);
-    employeesText.setCharacterSize(18);
-    employeesText.setString("Anything");
-    employeesText.setPosition({ 10.f, 5.f });
-    employeesText.setColor(sf::Color::Black);
 
-    createBuildingText.setFont(font);
-    createBuildingText.setCharacterSize(18);
-    createBuildingText.setString(">>Create a thing");
-    createBuildingText.setPosition({ 10.f, 30.f });
-    createBuildingText.setColor(sf::Color(96,96,96));
+    initText(employeesText, font, 18, "Anything", sf::Vector2f(10, 5), sf::Color::Black);
+    initText(createBuildingText, font, 18, ">>Create a thing", sf::Vector2f(10, 30), sf::Color(96,96,96));
+    initText(createTemwork, font, 18, ">>Team work", sf::Vector2f(10, 60), sf::Color(96,96,96));
+    initText(buildingImagine, font, 18, ">>Money", sf::Vector2f(10, 90), sf::Color(96,96,96));
+    initText(directorText, font, 18, ">>Big company", sf::Vector2f(10, 120), sf::Color(96,96,96));
+    initText(engineerText, font, 18, ">>World", sf::Vector2f(10, 150), sf::Color(96,96,96));
+    initText(modifyBuildingText, font, 18, ">>Go away", sf::Vector2f(10, 180), sf::Color(96,96,96));
 
-    createTemwork.setFont(font);
-    createTemwork.setCharacterSize(18);
-    createTemwork.setString(">>Team work");
-    createTemwork.setPosition({ 10.f, 60.f });
-    createTemwork.setColor(sf::Color(96,96,96));
 
-    buildingImagine.setFont(font);
-    buildingImagine.setCharacterSize(18);
-    buildingImagine.setString(">>Money");
-    buildingImagine.setPosition({ 10.f, 90.f });
-    buildingImagine.setColor(sf::Color(96,96,96));
 
-    directorText.setFont(font);
-    directorText.setCharacterSize(18);
-    directorText.setString(">>Big company");
-    directorText.setPosition({ 10.f, 120.f });
-    directorText.setColor(sf::Color(96,96,96));
-
-    engineerText.setFont(font);
-    engineerText.setCharacterSize(18);
-    engineerText.setString(">>World");
-    engineerText.setPosition({ 10.f, 150.f });
-    engineerText.setColor(sf::Color(96,96,96));
-
-    modifyBuildingText.setFont(font);
-    modifyBuildingText.setCharacterSize(18);
-    modifyBuildingText.setString(">>Go away");
-    modifyBuildingText.setPosition({ 10.f, 180.f });
-    modifyBuildingText.setColor(sf::Color(96,96,96));
 
     sf::FloatRect employeesTextDetection(employeesText.getPosition().x, employeesText.getPosition().y, employeesText.getGlobalBounds().width, employeesText.getGlobalBounds().height);
     sf::FloatRect createBuilduigTextDetection(createBuildingText.getPosition().x, createBuildingText.getPosition().y, createBuildingText.getGlobalBounds().width, createBuildingText.getGlobalBounds().height);
@@ -158,10 +106,10 @@ int screen_1::Run(sf::RenderWindow &App){
     sf::FloatRect modifyBuildingTextDetection(modifyBuildingText.getPosition().x, modifyBuildingText.getPosition().y, modifyBuildingText.getGlobalBounds().width, modifyBuildingText.getGlobalBounds().height);
 
     sf::FloatRect builduigRectDetection(builduingRect.getPosition().x, builduingRect.getPosition().y, builduingRect.getGlobalBounds().width, builduingRect.getGlobalBounds().height);
-    sf::FloatRect engineerRectDetection(engineerRect.getPosition().x, engineerRect.getPosition().y, engineerRect.getGlobalBounds().width, engineerRect.getGlobalBounds().height);
 
 
-int xco = 0, yco = 0;
+    //int xco = 0, yco = 0;
+
 
     while (Running){
         while (App.pollEvent(Event)){
@@ -170,24 +118,43 @@ int xco = 0, yco = 0;
             }
         }
 
-        if((xco != sf::Mouse::getPosition(App).x) && (yco != sf::Mouse::getPosition(App).y)){
+
+        // --------- TIME ---------
+        if(elapsed1 != (int)clock.getElapsedTime().asSeconds()){
+            if(elapsed1 == 24){
+                clock.restart();
+                elapsed1=0;
+                day++;
+            }
+            std::cout << "[day "<< day << "] " << elapsed1 << " heures" << std::endl;
+        }
+        elapsed1 = (int)clock.getElapsedTime().asSeconds();
+
+        // --------- TIME END ---------
+
+
+        /*if((xco != sf::Mouse::getPosition(App).x) && (yco != sf::Mouse::getPosition(App).y)){
             xco = sf::Mouse::getPosition(App).x;
             yco = sf::Mouse::getPosition(App).y;
-        }
+        }*/
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-            rectangle.move(-SPEED, 0);
+            player.move(-SPEED, 0);
+            view1.setCenter(player.getPosition());
         }
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-            rectangle.move(+SPEED,0);
+            player.move(+SPEED,0);
+            view1.setCenter(player.getPosition());
         }
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-            rectangle.move(0,-SPEED);
+            player.move(0,-SPEED);
+            view1.setCenter(player.getPosition());
         }
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-            rectangle.move(0,+SPEED);
-            day++;
-            creator.linesUP();
+            player.move(0,+SPEED);
+            view1.setCenter(player.getPosition());
+            //creator.linesUP();
+
         }
 
 
@@ -230,52 +197,36 @@ int xco = 0, yco = 0;
         if(ingameMode){
             if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && createBuilduigTextDetection.contains(sf::Mouse::getPosition(App).x, sf::Mouse::getPosition(App).y) && !click) {
                 click = true;
-                /*managerGUI.addSubwindow(sf::Vector2f(300, 450), sf::Vector2f(100, 100), sf::Color(237, 237, 237), 3.f, sf::Color(0, 0, 0), WINDOW_CREATE_BUILDING);
-                managerGUI.addText(font, FONT_SIZE, "Create a thing", sf::Color::White, {105.f, 105.f}, TITLE_TEXT, WINDOW_CREATE_BUILDING, false);
-                managerGUI.addText(font, FONT_SIZE, "1. A person, a money, a building?", sf::Color(0, 0, 0, 255), {170.f, 160.f}, SUB_TITLE_NAME_TEXT, WINDOW_CREATE_BUILDING, false);
-                managerGUI.addShape(sf::Vector2f(250, 25), sf::Vector2f(120, 185), sf::Color(255, 255, 255, 255), 2.f, sf::Color(0, 0, 0), TEXT_AREA_SHAPE, WINDOW_CREATE_BUILDING, true);
-                managerGUI.addText(font, FONT_SIZE, "2. Why ?", sf::Color(0, 0, 0, 255), {170.f, 220.f}, SUB_TITLE_WHY_TEXT, WINDOW_CREATE_BUILDING, false);
 
-                managerGUI.addShape(sf::Vector2f(10, 10), sf::Vector2f(120, 250), sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), CHECK_MAKE, WINDOW_CREATE_BUILDING, true);
-                managerGUI.addText(font, FONT_SIZE, "Make", sf::Color(0, 0, 0, 255), {140.f, 240.f}, CHECK_MAKE_TEXT, WINDOW_CREATE_BUILDING, false);
+                testMenu1 = false;
 
-                managerGUI.addShape(sf::Vector2f(10, 10), sf::Vector2f(120, 270), sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), CHECK_SOLD, WINDOW_CREATE_BUILDING, true);
-                managerGUI.addText(font, FONT_SIZE, "Sold", sf::Color(0, 0, 0, 255), {140.f, 260.f}, CHECK_SOLD_TEXT, WINDOW_CREATE_BUILDING, false);
-
-                managerGUI.addShape(sf::Vector2f(10, 10), sf::Vector2f(120, 290), sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), CHECK_BUY, WINDOW_CREATE_BUILDING, true);
-                managerGUI.addText(font, FONT_SIZE, "Buy", sf::Color(0, 0, 0, 255), {140.f, 280.f}, CHECK_BUY_TEXT, WINDOW_CREATE_BUILDING, false);*/
                 ingameMode = false;
                 creator.setCreateMode(true);
             }else if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && createTemworkDetection.contains(sf::Mouse::getPosition(App).x, sf::Mouse::getPosition(App).y) && !click){
                 click = true;
-                managerGUI.addSubwindow(sf::Vector2f(300, 450), sf::Vector2f(100, 100), sf::Color(237, 237, 237), 3.f, sf::Color(0, 0, 0), WINDOW_CREATE_TEAMWORK_ID);
-                managerGUI.addText(font, FONT_SIZE, "Info1", sf::Color::Red, {105.f, 105.f}, TITLE_TEXT, WINDOW_CREATE_TEAMWORK_ID, false);
-                managerGUI.addText(font, FONT_SIZE, "Not available", sf::Color::Red, {170.f, 160.f}, SUB_TITLE_NAME_TEXT, WINDOW_CREATE_TEAMWORK_ID, false);
+
+                testMenu1 = false;
+                createNotAvailablePage(SUB_TITLE_NAME_TEXT, WINDOW_CREATE_TEAMWORK_ID);
             }else if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && employeesTextDetection.contains(sf::Mouse::getPosition(App).x, sf::Mouse::getPosition(App).y) && !click){
                 click = true;
-                managerGUI.addSubwindow(sf::Vector2f(300, 450), sf::Vector2f(100, 100), sf::Color(237, 237, 237), 3.f, sf::Color(0, 0, 0), WINDOW_EMPLAYEES_ID);
-                managerGUI.addText(font, FONT_SIZE, "Info", sf::Color::Red, {105.f, 105.f}, TITLE_TEXT, WINDOW_EMPLAYEES_ID, false);
-                managerGUI.addText(font, FONT_SIZE, "Not available", sf::Color::Red, {170.f, 160.f}, SUB_TITLE_NAME_TEXT, WINDOW_EMPLAYEES_ID, false);
+                testMenu1 = false;
+                createNotAvailablePage(SUB_TITLE_NAME_TEXT, WINDOW_EMPLAYEES_ID);
             }else if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && buildingImagineDetection.contains(sf::Mouse::getPosition(App).x, sf::Mouse::getPosition(App).y) && !click){
                 click = true;
-                managerGUI.addSubwindow(sf::Vector2f(300, 450), sf::Vector2f(100, 100), sf::Color(237, 237, 237), 3.f, sf::Color(0, 0, 0), WINDOW_BUILDING_IMAGINE_ID);
-                managerGUI.addText(font, FONT_SIZE, "Info", sf::Color::Red, {105.f, 105.f}, TITLE_TEXT, WINDOW_BUILDING_IMAGINE_ID, false);
-                managerGUI.addText(font, FONT_SIZE, "Not available", sf::Color::Red, {170.f, 160.f}, SUB_TITLE_NAME_TEXT, WINDOW_BUILDING_IMAGINE_ID, false);
+                testMenu1 = false;
+                createNotAvailablePage(SUB_TITLE_NAME_TEXT, WINDOW_BUILDING_IMAGINE_ID);
             }else if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && directorTextDetection.contains(sf::Mouse::getPosition(App).x, sf::Mouse::getPosition(App).y) && !click){
                 click = true;
-                managerGUI.addSubwindow(sf::Vector2f(300, 450), sf::Vector2f(100, 100), sf::Color(237, 237, 237), 3.f, sf::Color(0, 0, 0), WINDOW_DIRECTOR_ID);
-                managerGUI.addText(font, FONT_SIZE, "Info", sf::Color::Red, {105.f, 105.f}, TITLE_TEXT, WINDOW_DIRECTOR_ID, false);
-                managerGUI.addText(font, FONT_SIZE, "Not available", sf::Color::Red, {170.f, 160.f}, SUB_TITLE_NAME_TEXT, WINDOW_DIRECTOR_ID, false);
+                testMenu1 = false;
+                createNotAvailablePage(SUB_TITLE_NAME_TEXT, WINDOW_DIRECTOR_ID);
             }else if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && engineerTextDetection.contains(sf::Mouse::getPosition(App).x, sf::Mouse::getPosition(App).y) && !click){
                 click = true;
-                managerGUI.addSubwindow(sf::Vector2f(300, 450), sf::Vector2f(100, 100), sf::Color(237, 237, 237), 3.f, sf::Color(0, 0, 0), WINDOW_ENGINEER_ID);
-                managerGUI.addText(font, FONT_SIZE, "Info", sf::Color::Red, {105.f, 105.f}, TITLE_TEXT, WINDOW_ENGINEER_ID, false);
-                managerGUI.addText(font, FONT_SIZE, "Not available", sf::Color::Red, {170.f, 160.f}, SUB_TITLE_NAME_TEXT, WINDOW_ENGINEER_ID, false);
+                testMenu1 = false;
+                createNotAvailablePage(SUB_TITLE_NAME_TEXT, WINDOW_ENGINEER_ID);
             }else if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && modifyBuildingTextDetection.contains(sf::Mouse::getPosition(App).x, sf::Mouse::getPosition(App).y) && !click){
                 click = true;
-                managerGUI.addSubwindow(sf::Vector2f(300, 450), sf::Vector2f(100, 100), sf::Color(237, 237, 237), 3.f, sf::Color(0, 0, 0), WINDOW_MODIFY_BUILDING_ID);
-                managerGUI.addText(font, FONT_SIZE, "Info", sf::Color::Red, {105.f, 105.f}, TITLE_TEXT, WINDOW_MODIFY_BUILDING_ID, false);
-                managerGUI.addText(font, FONT_SIZE, "Not available", sf::Color::Red, {170.f, 160.f}, SUB_TITLE_NAME_TEXT, WINDOW_MODIFY_BUILDING_ID, false);
+                testMenu1 = false;
+                createNotAvailablePage(SUB_TITLE_NAME_TEXT, WINDOW_MODIFY_BUILDING_ID);
             }
         }else if(creator.getCreateMode()){
             if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && creator.getDrawningArea().contains(sf::Mouse::getPosition(App).x, sf::Mouse::getPosition(App).y) && !startDrawning && !click){
@@ -300,6 +251,7 @@ int xco = 0, yco = 0;
         }
 
         creator.updateSelection(App);
+
         if(!creator.getCreateMode()){
             ingameMode = true;
         }
@@ -308,8 +260,14 @@ int xco = 0, yco = 0;
 
         App.clear(sf::Color(255, 255, 255, 255));
 
+
+
         if(ingameMode){
-            App.draw(rectangle);
+            App.setView(view1);
+            App.draw(player);
+            managerGUI.drawLines(App, creator.getLines());
+
+            App.setView(App.getDefaultView());
 
             managerGUI.draw(App);
 
@@ -332,7 +290,6 @@ int xco = 0, yco = 0;
             App.draw(moneyText);
             App.draw(reputationText);
 
-            managerGUI.drawLines(App, creator.getLines());
         }else if(creator.getCreateMode()){
             creator.draw(App);
 
@@ -355,4 +312,32 @@ int screen_1::load() {
         return (-1);
     }
     return 0;
+}
+
+void screen_1::initRectangleShape(sf::RectangleShape &rectangle, const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color) {
+    rectangle.setSize(size);
+    rectangle.setPosition(position);
+    rectangle.setFillColor(color);
+}
+
+void screen_1::initRectangleShape(sf::RectangleShape &rectangle, const sf::Vector2f &size, const sf::Vector2f &position, const sf::Color &color, float thickness, const sf::Color &outlineColor) {
+    rectangle.setSize(size);
+    rectangle.setPosition(position);
+    rectangle.setFillColor(color);
+    rectangle.setOutlineThickness(thickness);
+    rectangle.setOutlineColor(outlineColor);
+}
+
+void screen_1::initText(sf::Text &text, const sf::Font &font, const int &characterSize, const std::string &message, const sf::Vector2f &position, const sf::Color &color) {
+    text.setFont(font);
+    text.setCharacterSize(characterSize);
+    text.setString(message);
+    text.setPosition(position);
+    text.setColor(color);
+}
+
+void screen_1::createNotAvailablePage(const int &number, const int &idPane) {
+    managerGUI.addSubwindow(sf::Vector2f(300, 450), sf::Vector2f(100, 100), sf::Color(237, 237, 237), 3.f, sf::Color(0, 0, 0), idPane);
+    managerGUI.addText(font, FONT_SIZE, "Info", sf::Color::Red, {105.f, 105.f}, TITLE_TEXT, idPane, false);
+    managerGUI.addText(font, FONT_SIZE, "Not available", sf::Color::Red, {170.f, 160.f}, number, idPane, false);
 }
