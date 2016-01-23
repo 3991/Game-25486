@@ -5,7 +5,6 @@
 namespace screen2{
     class screen_2 : public cScreen{
         private:
-            ManagerGUI managerGUI;
         public:
             screen_2(void);
             virtual int Run(sf::RenderWindow &App);
@@ -33,10 +32,7 @@ int screen_2::Run(sf::RenderWindow &App){
 
 
 
-
-
         App.clear(sf::Color(255, 255, 255, 255));
-
 
         App.display();
     }
