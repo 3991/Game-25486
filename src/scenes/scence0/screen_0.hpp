@@ -2,7 +2,7 @@
 #include "../cScreen.hpp"
 #include "ManagerGUI.hpp"
 #include <SFML/Graphics.hpp>
-#include "../dll.h"
+
 
 namespace screen0{
     class screen_0 : public cScreen {
@@ -108,10 +108,6 @@ int screen_0::Run(sf::RenderWindow &App) {
         }
     }
 
- int resultat = 0;
-
-   resultat = carre(3);
- printf("Le resultat fffest %d\n", resultat);
 
     while (running) {
         while (App.pollEvent(Event)) {
@@ -204,6 +200,8 @@ int screen_0::Run(sf::RenderWindow &App) {
 
 
         App.clear(sf::Color(255, 255, 255, 255));
+
+
         managerGui.draw(App);
         App.display();
     }

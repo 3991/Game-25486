@@ -1,7 +1,7 @@
 #include <iostream>
 #include "../cScreen.hpp"
 #include <SFML/Graphics.hpp>
-
+#include "../dll.h"
 
 namespace screenMenu{
     class screen_Menu : public cScreen{
@@ -23,11 +23,19 @@ int screen_Menu::Run(sf::RenderWindow &App){
     sf::Event Event;
     bool running = true;
 
+    dll d;
 
+    d.initMainMenu(App);
     while (running){
         while (App.pollEvent(Event)){
             if (Event.type == sf::Event::Closed){
                 return (-1);
+            }
+
+            if (Event.type == sf::Event::Resized){
+                // on met à jour la vue, avec la nouvelle taille de la fenêtre
+                sf::FloatRect visibleArea(0, 0, Event.size.width, Event.size.height);
+                App.setView(sf::View(visibleArea));
             }
         }
 
@@ -38,7 +46,7 @@ int screen_Menu::Run(sf::RenderWindow &App){
 
 
         App.clear(sf::Color(255, 255, 255, 255));
-
+        d.draw(App);
         App.display();
     }
 

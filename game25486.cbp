@@ -47,11 +47,8 @@
 			<Add library="..\PrivateStaticLibrary\bin\Debug\libPrivateStaticLibrary.a" />
 			<Add directory="C:/Program Files (x86)/SFML-2.1/lib" />
 		</Linker>
-		<Unit filename="../test/main.cpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="dll.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="src/dll.h" />
 		<Unit filename="src/gui/Content.hpp" />
 		<Unit filename="src/gui/Pane.hpp" />
 		<Unit filename="src/scenes/cScreen.cpp" />
