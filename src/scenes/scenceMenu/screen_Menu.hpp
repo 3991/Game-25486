@@ -32,11 +32,12 @@ int screen_Menu::Run(sf::RenderWindow &App){
                 return (-1);
             }
 
-            if (Event.type == sf::Event::Resized){
+           /*if (Event.type == sf::Event::Resized){
                 // on met à jour la vue, avec la nouvelle taille de la fenêtre
                 sf::FloatRect visibleArea(0, 0, Event.size.width, Event.size.height);
                 App.setView(sf::View(visibleArea));
-            }
+                d.initMainMenu(App);
+            }*/
         }
 
 
@@ -45,7 +46,7 @@ int screen_Menu::Run(sf::RenderWindow &App){
 
 
 
-        App.clear(sf::Color(255, 255, 255, 255));
+        App.clear(sf::Color(176,196,222));
         d.draw(App);
         App.display();
     }

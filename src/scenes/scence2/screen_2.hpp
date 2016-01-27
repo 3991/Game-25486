@@ -32,7 +32,7 @@ int screen_2::Run(sf::RenderWindow &App){
 
 
 
-        App.clear(sf::Color(255, 255, 255, 255));
+        App.clear(sf::Color::Blue);
 
         App.display();
     }

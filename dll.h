@@ -4,10 +4,12 @@
 
 class dll {
     private:
-        sf::RectangleShape rectTitle;
+        sf::RectangleShape rectTitle, rectMain, rectChoice;
+        sf::Font font;
     public:
         void draw(sf::RenderWindow &window);
         void initMainMenu(sf::RenderWindow &window);
+        int load() ;
 };
 
 
