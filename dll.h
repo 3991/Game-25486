@@ -6,6 +6,9 @@ class dll {
     private:
         sf::RectangleShape rectTitle, rectMain, rectChoice;
         sf::Font font;
+        sf::Texture textureFolder, textureClose;
+        sf::Sprite spriteFodler, spriteClose;
+
     public:
         void draw(sf::RenderWindow &window);
         void initMainMenu(sf::RenderWindow &window);
