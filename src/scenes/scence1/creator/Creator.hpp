@@ -11,15 +11,37 @@ namespace creator{
         sf::Vertex currentLine[2];
         std::vector<sf::Vertex> vertices;
         std::vector<sf::Vertex> lines;
+<<<<<<< HEAD
 
         bool createMode, click;
 
+=======
+<<<<<<< HEAD
+
+        bool createMode, click;
+
+=======
+<<<<<<< HEAD
+        bool createMode, click;
+=======
+        bool createMode;
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         sf::VertexArray llines;
         int numberLines;
         sf::ConvexShape l;
         Object object;
         sf::Text text;
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
     public:
         Creator(void);
         virtual ~Creator(void);
@@ -120,6 +142,8 @@ void Creator::init(sf::Font &font, int fontSize){
 
     click = false;
 
+    click = false;
+
 std::string jour = "Jour : ";
 
 
@@ -148,91 +172,234 @@ std::string jour = "Jour : ";
     sstm << object.getPollution();
     result = sstm.str();
 
+    sstm.str(std::string());
+    sstm.clear();
+    sstm << object.getPollution();
+    result = sstm.str();
+
     addShape(sf::Vector2f(10, 10), {600.f, 160.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), POLLUTION_LESS_SHAPE_ID, OPTIONS_AREA_ID, true);
     sf::FloatRect pollutionLessDetection(600, 160, 10, 10);
     addText(font, fontSize, "-", sf::Color(0, 0, 0, 255), {603.f, 152.f}, POLLUTION_LESS_TEXT_ID, OPTIONS_AREA_ID, false);
+<<<<<<< HEAD
 
     addText(font, fontSize, result, sf::Color(0, 0, 0, 255), {620.f, 152.f}, POLLUTION_NUMBER_TEXT_ID, OPTIONS_AREA_ID, false);
 
+=======
+<<<<<<< HEAD
+
+    addText(font, fontSize, result, sf::Color(0, 0, 0, 255), {620.f, 152.f}, POLLUTION_NUMBER_TEXT_ID, OPTIONS_AREA_ID, false);
+
+=======
+<<<<<<< HEAD
+    addText(font, fontSize, result, sf::Color(0, 0, 0, 255), {620.f, 152.f}, POLLUTION_NUMBER_TEXT_ID, OPTIONS_AREA_ID, false);
+=======
+    addText(font, fontSize, text.getString(), sf::Color(0, 0, 0, 255), {620.f, 152.f}, POLLUTION_NUMBER_TEXT_ID, OPTIONS_AREA_ID, false);
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
     addShape(sf::Vector2f(10, 10), {650.f, 160.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), POLLUTION_MORE_SHAPE_ID, OPTIONS_AREA_ID, true);
     sf::FloatRect pollutionMoreDetection(650, 160, 10, 10);
     addText(font, fontSize, "+", sf::Color(0, 0, 0, 255), {650.f, 152.f}, POLLUTION_MORE_TEXT_ID, OPTIONS_AREA_ID, false);
     addText(font, fontSize, "Pollution", sf::Color(0, 0, 0, 255), {670.f, 152.f}, POLLUTION_TEXT_ID, OPTIONS_AREA_ID, false);
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
     sstm.str(std::string());
     sstm.clear();
     sstm << object.getLifetime();
     result = sstm.str();
 
+<<<<<<< HEAD
     addShape(sf::Vector2f(10, 10), {600.f, 190.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0),LIFETIME_LESS_SHAPE_ID, OPTIONS_AREA_ID, true);
     sf::FloatRect lifetimeLessDetection(600, 190, 10, 10);
     addText(font, fontSize, "-", sf::Color(0, 0, 0, 255), {603.f, 182.f}, LIFETIME_LESS_TEXT_ID, OPTIONS_AREA_ID, false);
     addText(font, fontSize, result, sf::Color(0, 0, 0, 255), {620.f, 182.f}, LIFETIME_NUMBER_TEXT_ID, OPTIONS_AREA_ID, false);
 
+=======
+    addShape(sf::Vector2f(10, 10), {600.f, 190.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0),LIFETIME_LESS_SHAPE_ID, OPTIONS_AREA_ID, true);
+    sf::FloatRect lifetimeLessDetection(600, 190, 10, 10);
+    addText(font, fontSize, "-", sf::Color(0, 0, 0, 255), {603.f, 182.f}, LIFETIME_LESS_TEXT_ID, OPTIONS_AREA_ID, false);
+    addText(font, fontSize, result, sf::Color(0, 0, 0, 255), {620.f, 182.f}, LIFETIME_NUMBER_TEXT_ID, OPTIONS_AREA_ID, false);
+<<<<<<< HEAD
+
+=======
+=======
+    addShape(sf::Vector2f(10, 10), {600.f, 190.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0),LIFETIME_LESS_SHAPE_ID, OPTIONS_AREA_ID, true);
+    sf::FloatRect lifetimeLessDetection(600, 190, 10, 10);
+    addText(font, fontSize, "-", sf::Color(0, 0, 0, 255), {603.f, 182.f}, LIFETIME_LESS_TEXT_ID, OPTIONS_AREA_ID, false);
+    addText(font, fontSize, "12", sf::Color(0, 0, 0, 255), {620.f, 182.f}, LIFETIME_NUMBER_TEXT_ID, OPTIONS_AREA_ID, false);
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
     addShape(sf::Vector2f(10, 10), {650.f, 190.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), LIFETIME_MORE_SHAPE_ID, OPTIONS_AREA_ID, true);
     sf::FloatRect lifetimeMoreDetection(650, 190, 10, 10);
     addText(font, fontSize, "+", sf::Color(0, 0, 0, 255), {650.f, 182.f}, LIFETIME_MORE_TEXT_ID, OPTIONS_AREA_ID, false);
     addText(font, fontSize, "Lifetime", sf::Color(0, 0, 0, 255), {670.f, 182.f}, LIFETIME_TEXT_ID, OPTIONS_AREA_ID, false);
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
     sstm.str(std::string());
     sstm.clear();
     sstm << object.getHealth();
     result = sstm.str();
 
+<<<<<<< HEAD
     addShape(sf::Vector2f(10, 10), {600.f, 220.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), HEALTH_LESS_SHAPE_ID, OPTIONS_AREA_ID, true);
     sf::FloatRect healthLessDetection(600, 220, 10, 10);
     addText(font, fontSize, "-", sf::Color(0, 0, 0, 255), {603.f, 212.f}, HEALTH_LESS_TEXT_ID, OPTIONS_AREA_ID, false);
     addText(font, fontSize, result, sf::Color(0, 0, 0, 255), {620.f, 212.f}, HEALTH_NUMBER_TEXT_ID, OPTIONS_AREA_ID, false);
 
+=======
+    addShape(sf::Vector2f(10, 10), {600.f, 220.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), HEALTH_LESS_SHAPE_ID, OPTIONS_AREA_ID, true);
+    sf::FloatRect healthLessDetection(600, 220, 10, 10);
+    addText(font, fontSize, "-", sf::Color(0, 0, 0, 255), {603.f, 212.f}, HEALTH_LESS_TEXT_ID, OPTIONS_AREA_ID, false);
+    addText(font, fontSize, result, sf::Color(0, 0, 0, 255), {620.f, 212.f}, HEALTH_NUMBER_TEXT_ID, OPTIONS_AREA_ID, false);
+<<<<<<< HEAD
+
+=======
+=======
+    addShape(sf::Vector2f(10, 10), {600.f, 220.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), HEALTH_LESS_SHAPE_ID, OPTIONS_AREA_ID, true);
+    sf::FloatRect healthLessDetection(600, 220, 10, 10);
+    addText(font, fontSize, "-", sf::Color(0, 0, 0, 255), {603.f, 212.f}, HEALTH_LESS_TEXT_ID, OPTIONS_AREA_ID, false);
+    addText(font, fontSize, "12", sf::Color(0, 0, 0, 255), {620.f, 212.f}, HEALTH_NUMBER_TEXT_ID, OPTIONS_AREA_ID, false);
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
     addShape(sf::Vector2f(10, 10), {650.f, 220.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), HEALTH_MORE_SHAPE_ID, OPTIONS_AREA_ID, true);
     sf::FloatRect healthMoreDetection(650, 220, 10, 10);
     addText(font, fontSize, "+", sf::Color(0, 0, 0, 255), {650.f, 212.f}, HEALTH_MORE_TEXT_ID, OPTIONS_AREA_ID, false);
     addText(font, fontSize, "Health", sf::Color(0, 0, 0, 255), {670.f, 212.f}, HEALTH_TEXT_ID, OPTIONS_AREA_ID, false);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
     sstm.str(std::string());
     sstm.clear();
     sstm << object.getLove();
     result = sstm.str();
 
+<<<<<<< HEAD
     addShape(sf::Vector2f(10, 10), {600.f, 250.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), LOVE_LESS_SHAPE_ID, OPTIONS_AREA_ID, true);
     sf::FloatRect loveLessDetection(600, 250, 10, 10);
     addText(font, fontSize, "-", sf::Color(0, 0, 0, 255), {603.f, 242.f}, LOVE_LESS_TEXT_ID, OPTIONS_AREA_ID, false);
     addText(font, fontSize, result, sf::Color(0, 0, 0, 255), {620.f, 242.f}, LOVE_NUMBER_TEXT_ID, OPTIONS_AREA_ID, false);
 
+=======
+    addShape(sf::Vector2f(10, 10), {600.f, 250.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), LOVE_LESS_SHAPE_ID, OPTIONS_AREA_ID, true);
+    sf::FloatRect loveLessDetection(600, 250, 10, 10);
+    addText(font, fontSize, "-", sf::Color(0, 0, 0, 255), {603.f, 242.f}, LOVE_LESS_TEXT_ID, OPTIONS_AREA_ID, false);
+    addText(font, fontSize, result, sf::Color(0, 0, 0, 255), {620.f, 242.f}, LOVE_NUMBER_TEXT_ID, OPTIONS_AREA_ID, false);
+<<<<<<< HEAD
+
+=======
+=======
+    addShape(sf::Vector2f(10, 10), {600.f, 250.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), LOVE_LESS_SHAPE_ID, OPTIONS_AREA_ID, true);
+    sf::FloatRect loveLessDetection(600, 250, 10, 10);
+    addText(font, fontSize, "-", sf::Color(0, 0, 0, 255), {603.f, 242.f}, LOVE_LESS_TEXT_ID, OPTIONS_AREA_ID, false);
+    addText(font, fontSize, "12", sf::Color(0, 0, 0, 255), {620.f, 242.f}, LOVE_NUMBER_TEXT_ID, OPTIONS_AREA_ID, false);
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
     addShape(sf::Vector2f(10, 10), {650.f, 250.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), LOVE_MORE_SHAPE_ID, OPTIONS_AREA_ID, true);
     sf::FloatRect loveMoreDetection(650, 250, 10, 10);
     addText(font, fontSize, "+", sf::Color(0, 0, 0, 255), {650.f, 242.f}, LOVE_MORE_TEXT_ID, OPTIONS_AREA_ID, false);
     addText(font, fontSize, "Love", sf::Color(0, 0, 0, 255), {670.f, 242.f}, LOVE_TEXT_ID, OPTIONS_AREA_ID, false);
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
     sstm.str(std::string());
     sstm.clear();
     sstm << object.getSleep();
     result = sstm.str();
 
+<<<<<<< HEAD
     addShape(sf::Vector2f(10, 10), {600.f, 280.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), SLEEP_LESS_SHAPE_ID, OPTIONS_AREA_ID, true);
     sf::FloatRect sleepLessDetection(600, 280, 10, 10);
     addText(font, fontSize, "-", sf::Color(0, 0, 0, 255), {603.f, 272.f}, SLEEP_LESS_TEXT_ID, OPTIONS_AREA_ID, false);
     addText(font, fontSize, result, sf::Color(0, 0, 0, 255), {620.f, 272.f}, SLEEP_NUMBER_TEXT_ID, OPTIONS_AREA_ID, false);
 
+=======
+    addShape(sf::Vector2f(10, 10), {600.f, 280.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), SLEEP_LESS_SHAPE_ID, OPTIONS_AREA_ID, true);
+    sf::FloatRect sleepLessDetection(600, 280, 10, 10);
+    addText(font, fontSize, "-", sf::Color(0, 0, 0, 255), {603.f, 272.f}, SLEEP_LESS_TEXT_ID, OPTIONS_AREA_ID, false);
+    addText(font, fontSize, result, sf::Color(0, 0, 0, 255), {620.f, 272.f}, SLEEP_NUMBER_TEXT_ID, OPTIONS_AREA_ID, false);
+<<<<<<< HEAD
+
+=======
+=======
+    addShape(sf::Vector2f(10, 10), {600.f, 280.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), SLEEP_LESS_SHAPE_ID, OPTIONS_AREA_ID, true);
+    sf::FloatRect sleepLessDetection(600, 280, 10, 10);
+    addText(font, fontSize, "-", sf::Color(0, 0, 0, 255), {603.f, 272.f}, SLEEP_LESS_TEXT_ID, OPTIONS_AREA_ID, false);
+    addText(font, fontSize, "12", sf::Color(0, 0, 0, 255), {620.f, 272.f}, SLEEP_NUMBER_TEXT_ID, OPTIONS_AREA_ID, false);
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
     addShape(sf::Vector2f(10, 10), {650.f, 280.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), SLEEP_MORE_SHAPE_ID, OPTIONS_AREA_ID, true);
     sf::FloatRect sleepMoreDetection(650, 280, 10, 10);
     addText(font, fontSize, "+", sf::Color(0, 0, 0, 255), {650.f, 272.f}, SLEEP_MORE_TEXT_ID, OPTIONS_AREA_ID, false);
     addText(font, fontSize, "Sleep", sf::Color(0, 0, 0, 255), {670.f, 272.f}, SLEEP_TEXT_ID, OPTIONS_AREA_ID, false);
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
     sstm.str(std::string());
     sstm.clear();
     sstm << object.getSafety();
     result = sstm.str();
 
+<<<<<<< HEAD
     addShape(sf::Vector2f(10, 10), {600.f, 310.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), SAFETY_LESS_SHAPE_ID, OPTIONS_AREA_ID, true);
     sf::FloatRect safetyLessDetection(600, 310, 10, 10);
     addText(font, fontSize, "-", sf::Color(0, 0, 0, 255), {603.f, 302.f}, SAFETY_LESS_TEXT_ID, OPTIONS_AREA_ID, false);
     addText(font, fontSize, result, sf::Color(0, 0, 0, 255), {620.f, 302.f}, SAFETY_NUMBER_TEXT_ID, OPTIONS_AREA_ID, false);
 
+=======
+    addShape(sf::Vector2f(10, 10), {600.f, 310.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), SAFETY_LESS_SHAPE_ID, OPTIONS_AREA_ID, true);
+    sf::FloatRect safetyLessDetection(600, 310, 10, 10);
+    addText(font, fontSize, "-", sf::Color(0, 0, 0, 255), {603.f, 302.f}, SAFETY_LESS_TEXT_ID, OPTIONS_AREA_ID, false);
+    addText(font, fontSize, result, sf::Color(0, 0, 0, 255), {620.f, 302.f}, SAFETY_NUMBER_TEXT_ID, OPTIONS_AREA_ID, false);
+<<<<<<< HEAD
+
+=======
+=======
+    addShape(sf::Vector2f(10, 10), {600.f, 310.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), SAFETY_LESS_SHAPE_ID, OPTIONS_AREA_ID, true);
+    sf::FloatRect safetyLessDetection(600, 310, 10, 10);
+    addText(font, fontSize, "-", sf::Color(0, 0, 0, 255), {603.f, 302.f}, SAFETY_LESS_TEXT_ID, OPTIONS_AREA_ID, false);
+    addText(font, fontSize, "12", sf::Color(0, 0, 0, 255), {620.f, 302.f}, SAFETY_NUMBER_TEXT_ID, OPTIONS_AREA_ID, false);
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
     addShape(sf::Vector2f(10, 10), {650.f, 310.f}, sf::Color(255, 255, 255, 255), 2, sf::Color(0, 0, 0), SAFETY_MORE_SHAPE_ID, OPTIONS_AREA_ID, true);
     sf::FloatRect safetyMoreDetection(650, 310, 10, 10);
     addText(font, fontSize, "+", sf::Color(0, 0, 0, 255), {650.f, 302.f}, SAFETY_MORE_TEXT_ID, OPTIONS_AREA_ID, false);
@@ -361,6 +528,15 @@ l.move(+10,0);
 void Creator::updateSelection(sf::RenderWindow &window){
 
 
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
     sf::FloatRect objectDetection(600, 50, 10, 10);
     sf::FloatRect buildingDetection(600, 80, 10, 10);
     sf::FloatRect confirmDetection(700, 500, 50, 50);
@@ -383,6 +559,18 @@ void Creator::updateSelection(sf::RenderWindow &window){
     sf::FloatRect healthLessDetection(600, 220, 10, 10);
     sf::FloatRect healthMoreDetection(650, 220, 10, 10);
 
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+    sf::FloatRect healthLessDetection(600, 220, 10, 10);
+    sf::FloatRect healthMoreDetection(650, 220, 10, 10);
+=======
+    sf::FloatRect healthMoreDetection(600, 220, 10, 10);
+    sf::FloatRect healthLessDetection(650, 220, 10, 10);
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
 
     sf::FloatRect loveLessDetection(600, 250, 10, 10);
     sf::FloatRect loveMoreDetection(650, 250, 10, 10);
@@ -393,25 +581,68 @@ void Creator::updateSelection(sf::RenderWindow &window){
     sf::FloatRect safetyLessDetection(600, 310, 10, 10);
     sf::FloatRect safetyMoreDetection(650, 310, 10, 10);
 
+<<<<<<< HEAD
 
     if(pollutionLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
 
+=======
+<<<<<<< HEAD
+
+    if(pollutionLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
+
+=======
+<<<<<<< HEAD
+    if(pollutionLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
+=======
+    if(pollutionLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         std::string result;
         std::stringstream sstm;
         int tmp = object.getPollution();
         tmp--;
         if(tmp < 0) tmp = 0;
+<<<<<<< HEAD
 
         object.setPollution(tmp);
 
+=======
+<<<<<<< HEAD
+
+        object.setPollution(tmp);
+
+=======
+<<<<<<< HEAD
+        object.setPollution(tmp);
+=======
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         sstm << tmp;
         result = sstm.str();
 
         pane.setText(POLLUTION_NUMBER_TEXT_ID, result);
+<<<<<<< HEAD
 
         click = true;
     }else if(pollutionMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
 
+=======
+<<<<<<< HEAD
+
+        click = true;
+    }else if(pollutionMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
+
+=======
+<<<<<<< HEAD
+        click = true;
+    }else if(pollutionMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
+=======
+    }else if(pollutionMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         std::string result;
         std::stringstream sstm;
         int tmp = object.getPollution();
@@ -419,30 +650,84 @@ void Creator::updateSelection(sf::RenderWindow &window){
 
         object.setPollution(tmp);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        object.setPollution(tmp);
+
+=======
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         sstm << tmp;
         result = sstm.str();
 
         pane.setText(POLLUTION_NUMBER_TEXT_ID, result);
+<<<<<<< HEAD
 
         click = true;
     }else if(lifetimeLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
 
+=======
+<<<<<<< HEAD
+
+        click = true;
+    }else if(lifetimeLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
+
+=======
+<<<<<<< HEAD
+        click = true;
+    }else if(lifetimeLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
+=======
+    }else if(lifetimeLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         std::string result;
         std::stringstream sstm;
         int tmp = object.getLifetime();
         tmp--;
         if(tmp < 0) tmp = 0;
+<<<<<<< HEAD
 
         object.setLifetime(tmp);
 
+=======
+<<<<<<< HEAD
+
+        object.setLifetime(tmp);
+
+=======
+<<<<<<< HEAD
+        object.setLifetime(tmp);
+=======
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         sstm << tmp;
         result = sstm.str();
 
         pane.setText(LIFETIME_NUMBER_TEXT_ID, result);
+<<<<<<< HEAD
 
         click = true;
     }else if(lifetimeMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
 
+=======
+<<<<<<< HEAD
+
+        click = true;
+    }else if(lifetimeMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
+
+=======
+<<<<<<< HEAD
+        click = true;
+    }else if(lifetimeMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
+=======
+    }else if(lifetimeMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         std::string result;
         std::stringstream sstm;
         int tmp = object.getLifetime();
@@ -450,30 +735,84 @@ void Creator::updateSelection(sf::RenderWindow &window){
 
         object.setLifetime(tmp);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        object.setLifetime(tmp);
+
+=======
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         sstm << tmp;
         result = sstm.str();
 
         pane.setText(LIFETIME_NUMBER_TEXT_ID, result);
+<<<<<<< HEAD
 
         click = true;
     }else if(healthLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
 
+=======
+<<<<<<< HEAD
+
+        click = true;
+    }else if(healthLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
+
+=======
+<<<<<<< HEAD
+        click = true;
+    }else if(healthLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
+=======
+    }else if(healthLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         std::string result;
         std::stringstream sstm;
         int tmp = object.getHealth();
         tmp--;
         if(tmp < 0) tmp = 0;
+<<<<<<< HEAD
 
         object.setHealth(tmp);
 
+=======
+<<<<<<< HEAD
+
+        object.setHealth(tmp);
+
+=======
+<<<<<<< HEAD
+        object.setHealth(tmp);
+=======
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         sstm << tmp;
         result = sstm.str();
 
         pane.setText(HEALTH_NUMBER_TEXT_ID, result);
+<<<<<<< HEAD
 
         click = true;
     }else if(healthMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
 
+=======
+<<<<<<< HEAD
+
+        click = true;
+    }else if(healthMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
+
+=======
+<<<<<<< HEAD
+        click = true;
+    }else if(healthMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
+=======
+    }else if(healthMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         std::string result;
         std::stringstream sstm;
         int tmp = object.getHealth();
@@ -481,30 +820,84 @@ void Creator::updateSelection(sf::RenderWindow &window){
 
         object.setHealth(tmp);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        object.setHealth(tmp);
+
+=======
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         sstm << tmp;
         result = sstm.str();
 
         pane.setText(HEALTH_NUMBER_TEXT_ID, result);
+<<<<<<< HEAD
 
         click = true;
     }else if(loveLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
 
+=======
+<<<<<<< HEAD
+
+        click = true;
+    }else if(loveLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
+
+=======
+<<<<<<< HEAD
+        click = true;
+    }else if(loveLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
+=======
+    }else if(loveLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         std::string result;
         std::stringstream sstm;
         int tmp = object.getLove();
         tmp--;
         if(tmp < 0) tmp = 0;
+<<<<<<< HEAD
 
         object.setLove(tmp);
 
+=======
+<<<<<<< HEAD
+
+        object.setLove(tmp);
+
+=======
+<<<<<<< HEAD
+        object.setLove(tmp);
+=======
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         sstm << tmp;
         result = sstm.str();
 
         pane.setText(LOVE_NUMBER_TEXT_ID, result);
+<<<<<<< HEAD
 
         click = true;
     }else if(loveMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
 
+=======
+<<<<<<< HEAD
+
+        click = true;
+    }else if(loveMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
+
+=======
+<<<<<<< HEAD
+        click = true;
+    }else if(loveMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
+=======
+    }else if(loveMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         std::string result;
         std::stringstream sstm;
         int tmp = object.getLove();
@@ -512,30 +905,84 @@ void Creator::updateSelection(sf::RenderWindow &window){
 
         object.setLove(tmp);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        object.setLove(tmp);
+
+=======
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         sstm << tmp;
         result = sstm.str();
 
         pane.setText(LOVE_NUMBER_TEXT_ID, result);
+<<<<<<< HEAD
 
         click = true;
     }else if(sleepLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
 
+=======
+<<<<<<< HEAD
+
+        click = true;
+    }else if(sleepLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
+
+=======
+<<<<<<< HEAD
+        click = true;
+    }else if(sleepLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
+=======
+    }else if(sleepLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         std::string result;
         std::stringstream sstm;
         int tmp = object.getSleep();
         tmp--;
         if(tmp < 0) tmp = 0;
+<<<<<<< HEAD
 
         object.setSleep(tmp);
 
+=======
+<<<<<<< HEAD
+
+        object.setSleep(tmp);
+
+=======
+<<<<<<< HEAD
+        object.setSleep(tmp);
+=======
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         sstm << tmp;
         result = sstm.str();
 
         pane.setText(SLEEP_NUMBER_TEXT_ID, result);
+<<<<<<< HEAD
 
         click = true;
     }else if(sleepMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
 
+=======
+<<<<<<< HEAD
+
+        click = true;
+    }else if(sleepMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
+
+=======
+<<<<<<< HEAD
+        click = true;
+    }else if(sleepMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
+=======
+    }else if(sleepMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         std::string result;
         std::stringstream sstm;
         int tmp = object.getSleep();
@@ -543,30 +990,84 @@ void Creator::updateSelection(sf::RenderWindow &window){
 
         object.setSleep(tmp);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        object.setSleep(tmp);
+
+=======
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         sstm << tmp;
         result = sstm.str();
 
         pane.setText(SLEEP_NUMBER_TEXT_ID, result);
+<<<<<<< HEAD
 
         click = true;
     }else if(safetyLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
 
+=======
+<<<<<<< HEAD
+
+        click = true;
+    }else if(safetyLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
+
+=======
+<<<<<<< HEAD
+        click = true;
+    }else if(safetyLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
+=======
+    }else if(safetyLessDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         std::string result;
         std::stringstream sstm;
         int tmp = object.getSafety();
         tmp--;
         if(tmp < 0) tmp = 0;
+<<<<<<< HEAD
 
         object.setSafety(tmp);
 
+=======
+<<<<<<< HEAD
+
+        object.setSafety(tmp);
+
+=======
+<<<<<<< HEAD
+        object.setSafety(tmp);
+=======
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         sstm << tmp;
         result = sstm.str();
 
         pane.setText(SAFETY_NUMBER_TEXT_ID, result);
+<<<<<<< HEAD
 
         click = true;
     }else if(safetyMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
 
+=======
+<<<<<<< HEAD
+
+        click = true;
+    }else if(safetyMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
+
+=======
+<<<<<<< HEAD
+        click = true;
+    }else if(safetyMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && !click) {
+=======
+    }else if(safetyMoreDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         std::string result;
         std::stringstream sstm;
         int tmp = object.getSafety();
@@ -574,11 +1075,28 @@ void Creator::updateSelection(sf::RenderWindow &window){
 
         object.setSafety(tmp);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        object.setSafety(tmp);
+
+=======
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         sstm << tmp;
         result = sstm.str();
 
         pane.setText(SAFETY_NUMBER_TEXT_ID, result);
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+        click = true;
+=======
+<<<<<<< HEAD
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
         click = true;
     }
 
@@ -592,5 +1110,26 @@ void Creator::updateSelection(sf::RenderWindow &window){
 
     if(!sf::Mouse::isButtonPressed(sf::Mouse::Left)){
         click = false;
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+    }
+
+
+    if(confirmDetection.contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && getCreateMode() && numberLines > 1) {
+        setLines(vertices);
+        setCreateMode(false);
+<<<<<<< HEAD
+    }else if(numberLines < 1){
+        std::cout << "Nombre de lignes tracees insufisant" << std::endl;
+    }
+
+    if(!sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+        click = false;
+=======
+>>>>>>> da628c3eb9e8d94f0b1709eeb705b6a9daa50b0f
+>>>>>>> 16f2d19701414918327faad9e778542f8b77fca2
+>>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
     }
 }
