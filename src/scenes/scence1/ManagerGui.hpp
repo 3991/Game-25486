@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
+
 class ManagerGui {
     private:
         Pane pane;

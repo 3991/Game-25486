@@ -3,11 +3,12 @@
 #include "ManagerGUI.hpp"
 #include <SFML/Graphics.hpp>
 
+
 namespace screen0{
     class screen_0 : public cScreen {
         private:
             sf::Font font;
-            bool click, username;
+            bool click;
             int clickable;
             sf::Text text, tileSubWindowText, nameMenuText, familyMenuText, choiceSubTitleText, continueSubWindowText, quitSubWindowText;
             ManagerGUI managerGui;
@@ -55,7 +56,6 @@ int screen_0::Run(sf::RenderWindow &App) {
     sf::Event Event;
     bool running = true;
     click = false;
-    username = false;
     sf::String textes;
     bool typeOn = false;
 
@@ -109,7 +109,6 @@ int screen_0::Run(sf::RenderWindow &App) {
     }
 
 
-
     while (running) {
         while (App.pollEvent(Event)) {
             if (Event.type == sf::Event::Closed) {
@@ -152,10 +151,10 @@ int screen_0::Run(sf::RenderWindow &App) {
                 managerGui.setColor(WINDOW, PENTAGON_SHAPE, sf::Color(16, 52, 166, 255));
             }else if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && continueTextDetectionDetection.contains(sf::Mouse::getPosition(App).x, sf::Mouse::getPosition(App).y)){
 
-                if(click && username){
+                if(click){
                     return (1);
                 }else{
-                    std::cout << "Selectionner une famille et/ou pseudo" << std::endl;
+                    std::cout << "Selectionner une famille" << std::endl;
                 }
             }else if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && quitTextDetectionDetection.contains(sf::Mouse::getPosition(App).x, sf::Mouse::getPosition(App).y)){
                 return (-1);
@@ -194,7 +193,6 @@ int screen_0::Run(sf::RenderWindow &App) {
                         textes += Event.text.unicode;
                         text.setString(textes);
                         managerGui.addText(font, FONT_SIZE, text.getString(), sf::Color(0, 0, 0, 255), {140.f, 180.f}, PSEUDO_TEXT, WINDOW, false);
-                        username = true;
                    }
                 }
             }
@@ -202,6 +200,8 @@ int screen_0::Run(sf::RenderWindow &App) {
 
 
         App.clear(sf::Color(255, 255, 255, 255));
+
+
         managerGui.draw(App);
         App.display();
     }

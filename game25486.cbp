@@ -44,8 +44,10 @@
 			<Add directory="C:/Program Files (x86)/SFML-2.1/include" />
 		</Compiler>
 		<Linker>
+			<Add library="..\PrivateStaticLibrary\bin\Debug\libPrivateStaticLibrary.a" />
 			<Add directory="C:/Program Files (x86)/SFML-2.1/lib" />
 		</Linker>
+		<Unit filename="dll.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/gui/Content.hpp" />
 		<Unit filename="src/gui/Pane.hpp" />
@@ -60,6 +62,7 @@
 		<Unit filename="src/scenes/scence1/screen_1.hpp" />
 		<Unit filename="src/scenes/scence2/ManagerGui.hpp" />
 		<Unit filename="src/scenes/scence2/screen_2.hpp" />
+		<Unit filename="src/scenes/scenceMenu/screen_Menu.hpp" />
 		<Unit filename="src/scenes/screens.hpp" />
 		<Extensions>
 			<code_completion />

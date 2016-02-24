@@ -5,6 +5,8 @@
 #include "cScreen.hpp"
 
 //Including each screen of application
+#include "scenceIntro/screen_Intro.hpp"
+#include "scenceMenu/screen_Menu.hpp"
 #include "scence0/screen_0.hpp"
 #include "scence1/screen_1.hpp"
 #include "scence2/screen_2.hpp"
