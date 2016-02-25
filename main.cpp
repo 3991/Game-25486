@@ -16,11 +16,11 @@ int main(int argc, char** argv){
     App.setFramerateLimit(60);
     App.setMouseCursorVisible(true);
 
-<<<<<<< HEAD
+
     screen_Intro sIntro;
     Screens.push_back(&sIntro);
-=======
->>>>>>> a5206a9dc68e2d0a9976ddbfa41db301023fb343
+
+
     screen_Menu sMenu;
     Screens.push_back(&sMenu);
     screen_0 s0;

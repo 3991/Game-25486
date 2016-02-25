@@ -32,6 +32,10 @@ int screen_Intro::Run(sf::RenderWindow &App){
             if (Event.type == sf::Event::Closed){
                 return (-1);
             }
+
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
+                return (2);
+            }
         }
 
 
