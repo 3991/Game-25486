@@ -43,7 +43,7 @@ int screen_Menu::Run(sf::RenderWindow &App){
 
 
 
-d.update(App);
+        d.update(App);
 
 
 
