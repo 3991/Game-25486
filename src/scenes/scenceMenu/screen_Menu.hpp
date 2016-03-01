@@ -25,30 +25,20 @@ int screen_Menu::Run(sf::RenderWindow &App){
 
     dll d;
 
-    d.initMainMenu(App);
+    d.initInterface2(App);
+
     while (running){
         while (App.pollEvent(Event)){
             if (Event.type == sf::Event::Closed){
                 return (-1);
             }
-
-
-           /*if (Event.type == sf::Event::Resized){
-                // on met à jour la vue, avec la nouvelle taille de la fenêtre
-                sf::FloatRect visibleArea(0, 0, Event.size.width, Event.size.height);
-                App.setView(sf::View(visibleArea));
-                d.initMainMenu(App);
-            }*/
         }
 
 
 
-        d.update(App);
-
-
 
         App.clear(sf::Color(176,196,222));
-        d.draw(App);
+        d.drawInterface2(App);
         App.display();
     }
 

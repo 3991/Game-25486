@@ -15,6 +15,7 @@ int main(int argc, char** argv){
     sf::RenderWindow App(sf::VideoMode(800, 600, 32), "Game 25486", sf::Style::Resize | sf::Style::Close, settings);
     App.setFramerateLimit(60);
     App.setMouseCursorVisible(true);
+
     screen_Menu sMenu;
     Screens.push_back(&sMenu);
 

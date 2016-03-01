@@ -4,7 +4,7 @@
 
 class dll {
     private:
-        sf::RectangleShape rectTitle, rectMain, rectChoice;
+        sf::RectangleShape rectTitle, rectMain, rectChoice, rectTest, rectTest2;
 
 
         sf::Texture textureFolder, textureClose;
@@ -17,6 +17,7 @@ class dll {
     public:
         void draw(sf::RenderWindow &window);
         void initMainMenu(sf::RenderWindow &window);
+
         int load() ;
 
         void update(sf::RenderWindow &window);
@@ -25,7 +26,10 @@ class dll {
         void initIntro(sf::RenderWindow &window);
         void drawIntro(sf::RenderWindow &window);
 
-
+        void initInterface(sf::RenderWindow &window);
+        void drawInterface(sf::RenderWindow &window);
+        void initInterface2(sf::RenderWindow &window);
+        void drawInterface2(sf::RenderWindow &window);
 };
 
 
