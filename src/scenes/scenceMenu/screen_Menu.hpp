@@ -25,7 +25,7 @@ int screen_Menu::Run(sf::RenderWindow &App){
 
     dll d;
 
-    d.initInterface2(App);
+    d.initInterface(App);
 
     while (running){
         while (App.pollEvent(Event)){
@@ -37,8 +37,8 @@ int screen_Menu::Run(sf::RenderWindow &App){
 
 
 
-        App.clear(sf::Color(176,196,222));
-        d.drawInterface2(App);
+        App.clear(sf::Color(255, 255, 255));
+        d.drawInterface(App);
         App.display();
     }
 
