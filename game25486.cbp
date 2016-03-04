@@ -62,8 +62,10 @@
 		<Unit filename="src/scenes/scence1/screen_1.hpp" />
 		<Unit filename="src/scenes/scence2/ManagerGui.hpp" />
 		<Unit filename="src/scenes/scence2/screen_2.hpp" />
+		<Unit filename="src/scenes/scenceInGame/Fps.hpp" />
+		<Unit filename="src/scenes/scenceInGame/Player.hpp" />
+		<Unit filename="src/scenes/scenceInGame/screen_Menu.hpp" />
 		<Unit filename="src/scenes/scenceIntro/screen_Intro.hpp" />
-		<Unit filename="src/scenes/scenceMenu/screen_Menu.hpp" />
 		<Unit filename="src/scenes/screens.hpp" />
 		<Extensions>
 			<code_completion />

@@ -362,10 +362,10 @@
 	<iostream>
 	<SFML/Graphics.hpp>
 
-1456350872 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\screens.hpp
+1457040412 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\screens.hpp
 	"cScreen.hpp"
 	"scenceIntro/screen_Intro.hpp"
-	"scenceMenu/screen_Menu.hpp"
+	"scenceInGame/screen_Menu.hpp"
 	"scence0/screen_0.hpp"
 	"scence1/screen_1.hpp"
 	"scence2/screen_2.hpp"
@@ -437,7 +437,7 @@
 
 1453454054 D
 
-1456351274 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scence1\screen_1.hpp
+1457021341 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scence1\screen_1.hpp
 	<iostream>
 	"../cScreen.hpp"
 	"creator/Creator.hpp"
@@ -498,22 +498,59 @@
 	"./../cScreen.hpp"
 	<SFML/Graphics.hpp>
 
-1456946072 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scencemenu\screen_menu.hpp
+1457028348 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scencemenu\screen_menu.hpp
 	<iostream>
 	"../cScreen.hpp"
 	<SFML/Graphics.hpp>
 	"../dll.h"
+	"Player.hpp"
+	"Fps.hpp"
 
 1453473582 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scencemenu\dll.h
 
 1453473582 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\dll.h
 
-1456950934 c:\program files (x86)\codeblocks\projets\game25486\dll.h
+1457106107 c:\program files (x86)\codeblocks\projets\game25486\dll.h
 	<SFML/Graphics.hpp>
+	<iostream>
+	<iostream>
+	<windows.h>
+	<tchar.h>
+	<SFML/Graphics/Font.hpp>
 
 1456351706 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scenceintro\screen_intro.hpp
 	<iostream>
 	"../cScreen.hpp"
 	<SFML/Graphics.hpp>
 	"../dll.h"
+
+1457028383 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scencemenu\player.hpp
+	<iostream>
+	"../cScreen.hpp"
+	<SFML/Graphics.hpp>
+
+1457028300 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scencemenu\fps.hpp
+	<SFML/Graphics.hpp>
+	<iostream>
+	<sstream>
+	<list>
+
+1457105358 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scenceingame\screen_menu.hpp
+	<iostream>
+	"../cScreen.hpp"
+	<SFML/Graphics.hpp>
+	"../dll.h"
+	"Player.hpp"
+	"Fps.hpp"
+
+1457028383 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scenceingame\player.hpp
+	<iostream>
+	"../cScreen.hpp"
+	<SFML/Graphics.hpp>
+
+1457028300 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scenceingame\fps.hpp
+	<SFML/Graphics.hpp>
+	<iostream>
+	<sstream>
+	<list>
 

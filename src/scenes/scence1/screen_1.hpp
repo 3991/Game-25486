@@ -25,7 +25,7 @@ namespace screen1{
             void createNotAvailablePage(const int &number, const int &idPane);
     };
 
-    const int SPEED = 7;
+    const int SPEED_ = 7;
 
     const int WINDOW_CREATE_BUILDING_ID = 1;
     const int WINDOW_CREATE_TEAMWORK_ID = 2;
