@@ -64,7 +64,7 @@ int screen_Menu::Run(sf::RenderWindow &App){
 
         player.update(frame);
 
-
+        interf.updateInterface(App);
 
 
 
