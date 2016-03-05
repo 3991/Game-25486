@@ -1,7 +1,7 @@
 #include <iostream>
 #include "../cScreen.hpp"
 #include <SFML/Graphics.hpp>
-#include "../dll.h"
+#include "./gui/Presentation.hpp"
 
 
 namespace screenIntro{
@@ -24,8 +24,8 @@ int screen_Intro::Run(sf::RenderWindow &App){
     sf::Event Event;
     bool running = true;
 
-    dll d;
-    d.initIntro(App);
+    Presentation present;
+    present.initIntro(App);
 
     while (running){
         while (App.pollEvent(Event)){
@@ -42,7 +42,7 @@ int screen_Intro::Run(sf::RenderWindow &App){
 
 
         App.clear(sf::Color(0,0,0));
-        d.drawIntro(App);
+        present.drawIntro(App);
         App.display();
     }
 

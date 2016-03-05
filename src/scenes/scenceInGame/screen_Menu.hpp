@@ -1,14 +1,16 @@
 #include <iostream>
 #include "../cScreen.hpp"
 #include <SFML/Graphics.hpp>
-#include "../dll.h"
+
 #include "Player.hpp"
 #include "Fps.hpp"
+#include "./gui/Interface.hpp"
 
 namespace screenMenu{
     class screen_Menu : public cScreen{
         private:
-            dll d;
+           // dll d;#include "../dll.h"
+            Interface interf;
             Player player;
             Fps mainFps;
             float frame;
@@ -29,7 +31,8 @@ int screen_Menu::Run(sf::RenderWindow &App){
     sf::Event Event;
     bool running = true;
 
-    d.initInterface(App);
+   // d.initInterface(App);
+    interf.initInterface(App);
 
     while (running){
         while (App.pollEvent(Event)){
@@ -67,7 +70,8 @@ int screen_Menu::Run(sf::RenderWindow &App){
 
 
         App.clear(sf::Color(176,196,222));
-        d.drawInterface(App);
+        //d.drawInterface(App);
+        interf.drawInterface(App);
         player.display(App);
         mainFps.display(App);
         App.display();
