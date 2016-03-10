@@ -18,6 +18,8 @@ int main(int argc, char** argv){
 
 
 
+
+
     screen_Menu sMenu;
     Screens.push_back(&sMenu);
 
@@ -25,11 +27,12 @@ int main(int argc, char** argv){
     screen_Intro sIntro;
     Screens.push_back(&sIntro);
 
+    screen_1 s1;
+    Screens.push_back(&s1);
 
     screen_0 s0;
     Screens.push_back(&s0);
-    screen_1 s1;
-    Screens.push_back(&s1);
+
     screen_2 s2;
     Screens.push_back(&s2);
 

@@ -1,29 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="src\scenes\scence2\ManagerGui.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\scenes\scence1\Player.hpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="51" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\gui\Pane.hpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1975" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\scenes\scenceIntro\screen_Intro.hpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="100" topLine="16" />
-		</Cursor>
-	</File>
-	<File name="src\scenes\scenceInGame\gui\Interface.hpp" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3530" topLine="70" />
-		</Cursor>
-	</File>
-	<File name="main.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="611" topLine="3" />
+			<Cursor1 position="75" topLine="26" />
 		</Cursor>
 	</File>
 	<File name="src\scenes\scence2\screen_2.hpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -31,19 +11,9 @@
 			<Cursor1 position="634" topLine="7" />
 		</Cursor>
 	</File>
-	<File name="src\scenes\scenceInGame\screen_Menu.hpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\scenes\scence1\creator\Creator.hpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1229" topLine="47" />
-		</Cursor>
-	</File>
-	<File name="src\scenes\scence0\screen_0.hpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="68" topLine="74" />
-		</Cursor>
-	</File>
-	<File name="src\scenes\scence0\ManagerGUI.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="189" topLine="0" />
+			<Cursor1 position="24084" topLine="484" />
 		</Cursor>
 	</File>
 	<File name="src\scenes\scenceIntro\gui\Presentation.hpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -51,24 +21,19 @@
 			<Cursor1 position="511" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\gui\Content.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\gui\Pane.hpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="272" topLine="0" />
+			<Cursor1 position="1975" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\scenes\scence1\creator\Creator.hpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="24084" topLine="484" />
+			<Cursor1 position="664" topLine="9" />
 		</Cursor>
 	</File>
-	<File name="src\scenes\screens.hpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\scenes\scence2\ManagerGui.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="271" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\scenes\scence1\Player.hpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="75" topLine="26" />
+			<Cursor1 position="51" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="src\scenes\scence1\ManagerGui.hpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -76,14 +41,29 @@
 			<Cursor1 position="51" topLine="0" />
 		</Cursor>
 	</File>
+	<File name="src\scenes\scence0\ManagerGUI.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="189" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\scenes\scence1\screen_1.hpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8191" topLine="143" />
+		</Cursor>
+	</File>
 	<File name="src\scenes\scenceInGame\Player.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="988" topLine="26" />
 		</Cursor>
 	</File>
-	<File name="src\scenes\cScreen.hpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\scenes\scenceIntro\screen_Intro.hpp" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="88" topLine="0" />
+			<Cursor1 position="100" topLine="16" />
+		</Cursor>
+	</File>
+	<File name="src\scenes\scenceInGame\gui\Interface.hpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4912" topLine="75" />
 		</Cursor>
 	</File>
 	<File name="src\scenes\cScreen.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -91,19 +71,39 @@
 			<Cursor1 position="137" topLine="0" />
 		</Cursor>
 	</File>
+	<File name="src\scenes\scence0\screen_0.hpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="68" topLine="74" />
+		</Cursor>
+	</File>
 	<File name="src\scenes\scence1\Object.hpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="82" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\scenes\scence1\screen_1.hpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\scenes\scenceInGame\screen_Menu.hpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="8191" topLine="143" />
+			<Cursor1 position="1229" topLine="47" />
 		</Cursor>
 	</File>
-	<File name="dll.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\gui\Content.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="272" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="dll.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="293" topLine="8" />
+		</Cursor>
+	</File>
+	<File name="src\scenes\cScreen.hpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="88" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\scenes\screens.hpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="271" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

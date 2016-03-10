@@ -61,7 +61,7 @@ void Interface::initInterface(sf::RenderWindow &window){
     createThingText.setColor(sf::Color::Black);
     createThingText.setPosition(buttonsSubMenu.getPosition().x, buttonsSubMenu.getPosition().y);
 
-    buttonCreateThing.setSize(sf::Vector2f(buttonsSubMenu.getSize().x, createThingText.getGlobalBounds().height));
+    buttonCreateThing.setSize(sf::Vector2f(buttonsSubMenu.getSize().x, createThingText.getGlobalBounds().height+5));
     buttonCreateThing.setPosition(buttonsSubMenu.getPosition().x, buttonsSubMenu.getPosition().y);
     buttonCreateThing.setFillColor(sf::Color::White);
 }
@@ -103,6 +103,9 @@ void Interface::updateInterface(sf::RenderWindow &window){
         createThingText.setColor(sf::Color::White);
         buttonCreateThing.setFillColor(sf::Color::Black);
         createThingOver = true;
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+            std::cout << "test" << std::endl;
+        }
     }else{
 
     }

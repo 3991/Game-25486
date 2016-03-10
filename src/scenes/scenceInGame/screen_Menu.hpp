@@ -5,12 +5,13 @@
 #include "Player.hpp"
 #include "Fps.hpp"
 #include "./gui/Interface.hpp"
+#include "./gui/Window.hpp"
 
 namespace screenMenu{
     class screen_Menu : public cScreen{
         private:
-           // dll d;#include "../dll.h"
             Interface interf;
+            Window wind;
             Player player;
             Fps mainFps;
             float frame;
@@ -33,6 +34,7 @@ int screen_Menu::Run(sf::RenderWindow &App){
 
    // d.initInterface(App);
     interf.initInterface(App);
+    wind.initMainMenu(App);
 
     while (running){
         while (App.pollEvent(Event)){
@@ -66,11 +68,12 @@ int screen_Menu::Run(sf::RenderWindow &App){
 
         interf.updateInterface(App);
 
-
+        wind.update(App);
 
 
         App.clear(sf::Color(176,196,222));
         //d.drawInterface(App);
+        wind.draw(App);
         interf.drawInterface(App);
         player.display(App);
         mainFps.display(App);
