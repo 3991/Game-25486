@@ -1,10 +1,10 @@
 #include <SFML/Graphics.hpp>
 
-class Window {
+class WindowCreateThing : public Window {
     private:
        sf::RectangleShape rectTitle, rectMain, rectChoice, rectTest;
 
-        sf::Text createThingText;
+sf::Text createThingText;
         sf::Texture textureFolder, textureClose;
         sf::Vector2i starting_position;
 
@@ -15,17 +15,19 @@ class Window {
        // sf::Text creaThingText;
         sf::Font f;
     public:
-        Window(void);
-        void init(sf::RenderWindow &window);
+        WindowCreateThing(void);
+        void initMainMenu(sf::RenderWindow &window);
         void draw(sf::RenderWindow &window);
         int load();
         void update(sf::RenderWindow &window);
+        void createWindowSubMenuCreate();
 };
 
-Window::Window(void) {
+WindowCreateThing::WindowCreateThing(void) {
+
 }
 
-void Window::init(sf::RenderWindow &window) {
+void WindowCreateThing::initMainMenu(sf::RenderWindow &window) {
 
     rectTitle.setSize(sf::Vector2f(window.getSize().x*0.45, window.getSize().y*0.07));
     rectTitle.setPosition(sf::Vector2f(window.getSize().x/2-(rectTitle.getSize().x/2), window.getSize().x/4-(rectTitle.getSize().y/2)));
@@ -43,14 +45,20 @@ void Window::init(sf::RenderWindow &window) {
 
 }
 
-void Window::draw(sf::RenderWindow &window) {
+void WindowCreateThing::createWindowSubMenuCreate(){
+
+
+}
+
+
+void WindowCreateThing::draw(sf::RenderWindow &window) {
     window.draw(rectMain);
     window.draw(rectTitle);
 
 
 
 
-    /*sf::Text textTitle;
+    sf::Text textTitle;
     //textTitle.setFont(font);
     textTitle.setString("newLife.txt");
     textTitle.setCharacterSize(24);
@@ -90,10 +98,10 @@ void Window::draw(sf::RenderWindow &window) {
     window.draw(spriteFodler);
 
 
-    window.draw(spriteClose);*/
+    window.draw(spriteClose);
 }
 
-int Window::load() {
+int WindowCreateThing::load() {
 
     if (!textureFolder.loadFromFile("folder.png")) {
         std::cerr << "Error loading folder.png" << std::endl;
@@ -107,7 +115,7 @@ int Window::load() {
     return 0;
 }
 
-void Window::update(sf::RenderWindow &window) {
+void WindowCreateThing::update(sf::RenderWindow &window) {
 
     if( sf::Mouse::isButtonPressed(sf::Mouse::Left)){
         starting_position.x = sf::Mouse::getPosition(window).x;

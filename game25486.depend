@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1457549836 source:c:\program files (x86)\codeblocks\projets\game25486\main.cpp
+1457972444 source:c:\program files (x86)\codeblocks\projets\game25486\main.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	"src/scenes/screens.hpp"
@@ -534,14 +534,13 @@
 	<sstream>
 	<list>
 
-1457647787 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scenceingame\screen_menu.hpp
+1457774786 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scenceingame\screen_menu.hpp
 	<iostream>
 	"../cScreen.hpp"
 	<SFML/Graphics.hpp>
 	"Player.hpp"
 	"Fps.hpp"
 	"./gui/Interface.hpp"
-	"./gui/Window.hpp"
 
 1457028383 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scenceingame\player.hpp
 	<iostream>
@@ -554,8 +553,9 @@
 	<sstream>
 	<list>
 
-1457467534 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scenceingame\gui\interface.hpp
+1457968396 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scenceingame\gui\interface.hpp
 	<SFML/Graphics.hpp>
+	"./Window.hpp"
 
 1457167130 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scenceintro\gui\presentation.hpp
 	<SFML/Graphics.hpp>
@@ -563,6 +563,6 @@
 	<windows.h>
 	<tchar.h>
 
-1457647898 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scenceingame\gui\window.hpp
+1457974607 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scenceingame\gui\window.hpp
 	<SFML/Graphics.hpp>
 

@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include "./Window.hpp"
 
 class Interface {
     private:
@@ -7,6 +8,8 @@ class Interface {
         sf::Font font;
         bool buttonMainMenuClicked, createThingOver;
         sf::Font f;
+        std::vector<Window*> windows;
+        Window w;
     public:
         Interface(void);
         void initInterface(sf::RenderWindow &window);
@@ -24,6 +27,8 @@ Interface::Interface(void) {
 
 void Interface::initInterface(sf::RenderWindow &window){
 
+    //w.init(window);
+    windows.push_back(&w);
 
     taskbar.setSize(sf::Vector2f(window.getSize().x, window.getSize().y*0.05));
     taskbar.setPosition(0, window.getSize().y-(window.getSize().y*0.05));
@@ -78,6 +83,10 @@ void Interface::drawInterface(sf::RenderWindow &window) {
     }
     window.draw(mainMenuText);
 
+
+    for(unsigned int a = 0;a<windows.size(); a++){
+        windows[0]->draw(window);
+    }
 }
 
 
