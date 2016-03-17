@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1457972444 source:c:\program files (x86)\codeblocks\projets\game25486\main.cpp
+1457974622 source:c:\program files (x86)\codeblocks\projets\game25486\main.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	"src/scenes/screens.hpp"
@@ -553,9 +553,10 @@
 	<sstream>
 	<list>
 
-1457968396 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scenceingame\gui\interface.hpp
+1458227173 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scenceingame\gui\interface.hpp
 	<SFML/Graphics.hpp>
 	"./Window.hpp"
+	"./WindowCreateThing.hpp"
 
 1457167130 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scenceintro\gui\presentation.hpp
 	<SFML/Graphics.hpp>
@@ -563,6 +564,9 @@
 	<windows.h>
 	<tchar.h>
 
-1457974607 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scenceingame\gui\window.hpp
+1458228348 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scenceingame\gui\window.hpp
+	<SFML/Graphics.hpp>
+
+1458227233 c:\program files (x86)\codeblocks\projets\game25486\src\scenes\scenceingame\gui\windowcreatething.hpp
 	<SFML/Graphics.hpp>
 

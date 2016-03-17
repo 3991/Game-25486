@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "./Window.hpp"
+#include "./WindowCreateThing.hpp"
 
 class Interface {
     private:
@@ -9,7 +10,8 @@ class Interface {
         bool buttonMainMenuClicked, createThingOver;
         sf::Font f;
         std::vector<Window*> windows;
-        Window w;
+        WindowCreateThing w;
+        bool dont;
     public:
         Interface(void);
         void initInterface(sf::RenderWindow &window);
@@ -26,10 +28,6 @@ Interface::Interface(void) {
 }
 
 void Interface::initInterface(sf::RenderWindow &window){
-
-    //w.init(window);
-    windows.push_back(&w);
-
     taskbar.setSize(sf::Vector2f(window.getSize().x, window.getSize().y*0.05));
     taskbar.setPosition(0, window.getSize().y-(window.getSize().y*0.05));
     //taskbar.setFillColor(sf::Color(176,196,222));
@@ -68,6 +66,9 @@ void Interface::initInterface(sf::RenderWindow &window){
 
     buttonCreateThing.setSize(sf::Vector2f(buttonsSubMenu.getSize().x, createThingText.getGlobalBounds().height+5));
     buttonCreateThing.setPosition(buttonsSubMenu.getPosition().x, buttonsSubMenu.getPosition().y);
+
+
+    dont = false;
     buttonCreateThing.setFillColor(sf::Color::White);
 }
 
@@ -83,9 +84,10 @@ void Interface::drawInterface(sf::RenderWindow &window) {
     }
     window.draw(mainMenuText);
 
-
-    for(unsigned int a = 0;a<windows.size(); a++){
-        windows[0]->draw(window);
+    if(windows.size() > 0){std::cout << "testd" << std::endl;
+        for(unsigned int a = 0;a<windows.size(); a++){
+            windows[0]->draw(window);
+        }
     }
 }
 
@@ -112,8 +114,10 @@ void Interface::updateInterface(sf::RenderWindow &window){
         createThingText.setColor(sf::Color::White);
         buttonCreateThing.setFillColor(sf::Color::Black);
         createThingOver = true;
-        if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-            std::cout << "test" << std::endl;
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && !dont){
+            w.init(window);
+            windows.push_back(&w);
+            dont = true;
         }
     }else{
 

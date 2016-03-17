@@ -2,32 +2,31 @@
 
 class WindowCreateThing : public Window {
     private:
-       sf::RectangleShape rectTitle, rectMain, rectChoice, rectTest;
-
-sf::Text createThingText;
+        sf::RectangleShape rectTitle, rectMain, rectChoice;
+        sf::Text createThingText;
         sf::Texture textureFolder, textureClose;
         sf::Vector2i starting_position;
-
-        // IN GAME
         sf::RectangleShape taskbar, buttonMainMenu, buttonsSubMenu;
         sf::Text anythingText;
         sf::Font font;
-       // sf::Text creaThingText;
         sf::Font f;
+        sf::Text textTitle;
+        sf::Sprite spriteFodler, spriteClose;
     public:
         WindowCreateThing(void);
-        void initMainMenu(sf::RenderWindow &window);
+        void init(sf::RenderWindow &window);
         void draw(sf::RenderWindow &window);
         int load();
         void update(sf::RenderWindow &window);
-        void createWindowSubMenuCreate();
 };
 
 WindowCreateThing::WindowCreateThing(void) {
 
 }
 
-void WindowCreateThing::initMainMenu(sf::RenderWindow &window) {
+
+
+void WindowCreateThing::init(sf::RenderWindow &window) {
 
     rectTitle.setSize(sf::Vector2f(window.getSize().x*0.45, window.getSize().y*0.07));
     rectTitle.setPosition(sf::Vector2f(window.getSize().x/2-(rectTitle.getSize().x/2), window.getSize().x/4-(rectTitle.getSize().y/2)));
@@ -40,36 +39,17 @@ void WindowCreateThing::initMainMenu(sf::RenderWindow &window) {
     load();
 
 
-    starting_position = sf::Mouse::getPosition( window );
-
-
-}
-
-void WindowCreateThing::createWindowSubMenuCreate(){
-
-
-}
-
-
-void WindowCreateThing::draw(sf::RenderWindow &window) {
-    window.draw(rectMain);
-    window.draw(rectTitle);
+    starting_position = sf::Mouse::getPosition(window);
 
 
 
-
-    sf::Text textTitle;
     //textTitle.setFont(font);
     textTitle.setString("newLife.txt");
     textTitle.setCharacterSize(24);
     textTitle.setColor(sf::Color::White);
     textTitle.setPosition(sf::Vector2f(rectTitle.getPosition().x+rectTitle.getSize().x*0.3, rectTitle.getPosition().y+rectTitle.getSize().y*0.1));
 
-
-    // sf::Texture textureFolder, textureClose;
-        sf::Sprite spriteFodler, spriteClose;
-
-///// FOLDER ICONEWindow w;
+    ///// FOLDER ICONE
     textureFolder.setSmooth(true);
     spriteFodler.setTexture(textureFolder);
     sf::Vector2f targetSize(25.0f, 25.0f);
@@ -81,7 +61,7 @@ void WindowCreateThing::draw(sf::RenderWindow &window) {
 
 
 
-///// CLOSE ICONE
+    ///// CLOSE ICONE
     textureClose.setSmooth(true);
     spriteClose.setTexture(textureClose);
     sf::Vector2f targetSize2(window.getSize().y*0.07, window.getSize().y*0.07);
@@ -89,7 +69,14 @@ void WindowCreateThing::draw(sf::RenderWindow &window) {
         targetSize2.x / spriteClose.getLocalBounds().width,
         targetSize2.y / spriteClose.getLocalBounds().height);
     spriteClose.setPosition(rectTitle.getPosition().x+rectTitle.getSize().x-targetSize2.x, rectTitle.getPosition().y);
+}
 
+
+
+
+void WindowCreateThing::draw(sf::RenderWindow &window) {
+    window.draw(rectMain);
+    window.draw(rectTitle);
 
 
 
@@ -97,8 +84,8 @@ void WindowCreateThing::draw(sf::RenderWindow &window) {
 
     window.draw(spriteFodler);
 
-
     window.draw(spriteClose);
+    std::cout << "etllaa" << std::endl;
 }
 
 int WindowCreateThing::load() {

@@ -68,6 +68,9 @@
 			<Option target="Debug" />
 		</Unit>
 		<Unit filename="src/scenes/scenceInGame/gui/Window.hpp" />
+		<Unit filename="src/scenes/scenceInGame/gui/WindowCreateThing.hpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="src/scenes/scenceInGame/screen_Menu.hpp" />
 		<Unit filename="src/scenes/scenceIntro/gui/Presentation.hpp">
 			<Option target="&lt;{~None~}&gt;" />

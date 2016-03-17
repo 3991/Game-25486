@@ -2,7 +2,7 @@
 
 class Window {
     private:
-       sf::RectangleShape rectTitle, rectMain, rectChoice, rectTest;
+       sf::RectangleShape rectTitle, rectMain, rectChoice;
 
         sf::Text createThingText;
         sf::Texture textureFolder, textureClose;
@@ -17,7 +17,7 @@ class Window {
     public:
         Window(void);
         void init(sf::RenderWindow &window);
-        void draw(sf::RenderWindow &window);
+        virtual void draw(sf::RenderWindow &window);
         int load();
         void update(sf::RenderWindow &window);
 };
