@@ -84,7 +84,7 @@ void Interface::drawInterface(sf::RenderWindow &window) {
     }
     window.draw(mainMenuText);
 
-    if(windows.size() > 0){std::cout << "testd" << std::endl;
+    if(windows.size() > 0){
         for(unsigned int a = 0;a<windows.size(); a++){
             windows[0]->draw(window);
         }
@@ -121,5 +121,12 @@ void Interface::updateInterface(sf::RenderWindow &window){
         }
     }else{
 
+    }
+
+
+    if(windows.size() > 0){
+        for(unsigned int a = 0;a<windows.size(); a++){
+            windows[0]->update(window);
+        }
     }
 }
